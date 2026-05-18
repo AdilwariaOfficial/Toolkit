@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta name="description" content="ADIL Tools - The ultimate online toolkit featuring cyber tools, free hosting, free domain, and much more. Developed by Adil Waria®| FTGM Hacks." />
+  <meta name="keywords" content="adiltools, adil, toolkit, Cyber tools, online tools, free hosting, free domain, adil, ftgm Hacks, ftgm toolkit, best Toolkit" />
+  <title>adil Tools</title>
+  
+  <link rel="manifest" href="manifest.json" />
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Nova+Square&family=Kanit&family=Baumans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/7hHz3CG9/FTGM-TOOLS.png">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wave-bg"><div class="wave"></div></div>
+
+  <div class="container">
+    <div class="title"><span>FTGM</span> <span>TOOLS</span></div>
+    <div class="subtitle" id="mainSubtitle">Developed By Rana Faisal Ali | FTGM</div>
+    
+    <div class="search-container">
+      <div id="poda">
+        <div class="glow"></div>
+        <div class="darkBorderBg"></div>
+        <div class="darkBorderBg"></div>
+        <div class="darkBorderBg"></div>
+        <div class="white"></div>
+        <div class="border"></div>
+        <div id="main">
+          <input placeholder="Search..." type="text" name="text" class="input" id="searchInput" />
+          <div id="input-mask"></div>
+          <div id="pink-mask"></div>
+          <div id="search-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke-linejoin="round"
+              stroke-linecap="round"
+              height="20"
+              fill="none"
+              class="feather feather-search"
+            >
+              <circle stroke="url(#search)" r="8" cy="11" cx="11"></circle>
+              <line
+                stroke="url(#searchl)"
+                y2="16.65"
+                y1="22"
+                x2="16.65"
+                x1="22"
+              ></line>
+              <defs>
+                <linearGradient gradientTransform="rotate(50)" id="search">
+                  <stop stop-color="#f8e7f8" offset="0%"></stop>
+                  <stop stop-color="#b6a9b7" offset="50%"></stop>
+                </linearGradient>
+                <linearGradient id="searchl">
+                  <stop stop-color="#b6a9b7" offset="0%"></stop>
+                  <stop stop-color="#837484" offset="50%"></stop>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="notifications-btn-container">
+      <div id="notification-poda">
+        <div class="notification-glow"></div>
+        <div class="notification-darkBorderBg"></div>
+        <div class="notification-darkBorderBg"></div>
+        <div class="notification-darkBorderBg"></div>
+        <div class="notification-white"></div>
+        <div class="notification-border"></div>
+        <div id="notification-main">
+          <div class="notification-input" id="notification-input">Notifications</div>
+          <div id="notification-input-mask"></div>
+          <div id="notification-pink-mask"></div>
+          <div id="notification-bell-icon">
+            <svg class="bell" viewBox="0 0 448 512"><path d="M224 0c-17.7 0-32 14.3-32 32V49.9C119.5 61.4 64 124.2 64 200v33.4c0 45.4-15.5 89.5-43.8 124.9L5.3 377c-5.8 7.2-6.9 17.1-2.9 25.4S14.8 416 24 416H424c9.2 0 17.6-5.3 21.6-13.6s2.9-18.2-2.9-25.4l-14.9-18.6C399.5 322.9 384 278.8 384 233.4V200c0-75.8-55.5-138.6-128-150.1V32c0-17.7-14.3-32-32-32zm0 96h8c57.4 0 104 46.6 104 104v33.4c0 47.9 13.9 94.6 39.7 134.6H72.3C98.1 328 112 281.3 112 233.4V200c0-57.4 46.6-104 104-104h8zm64 352H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7s18.7-28.3 18.7-45.3z"></path></svg>
+          </div>
+          <div class="notification-arrow">â€º</div>
+          <div class="notification-badge" id="notification-badge" style="display: none;">0</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="notifications-panel" id="notifications-panel">
+      <div class="notifications-header">
+        <h3>Notifications</h3>
+        <button class="close-notifications" id="close-notifications">Ã—</button>
+      </div>
+      <div class="notifications-list" id="notifications-list">
+        <div class="no-notifications">No notifications yet</div>
+      </div>
+    </div>
+    
+    <div class="tool-grid" id="tools"></div>
+    
+    <div class="stats-container">
+      <div class="stat-box">
+        <i class="fas fa-eye stat-icon"></i>
+        <div class="stat-value" id="viewsCount">0</div>
+      </div>
+      
+      <div class="stat-box">
+        <div class="online-indicator">
+          <div class="online-dot"></div>
+          <div class="online-text">System Online</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="popup-overlay" class="popup-overlay">
+      <div class="glass-popup">
+        <h3 id="popup-title">FTGM Tools Premium</h3>
+        <p id="popup-message">Unlock the full potential of our toolkit with premium features and exclusive access.</p>
+        <div class="glass-popup-buttons">
+          <button class="glass-popup-btn glass-popup-primary" id="popup-btn1">Get Premium</button>
+          <button class="glass-popup-btn glass-popup-secondary" id="popup-close-btn">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="ad-popup-overlay" class="bottom-popup-overlay">
+      <div class="bottom-popup ad-popup">
+        <h3 id="ad-popup-title">Special Offer</h3>
+        <p id="ad-popup-description">Check out our latest features and updates!</p>
+        <div class="bottom-popup-buttons">
+          <button class="bottom-popup-btn bottom-popup-primary" id="ad-load-btn">More Details</button>
+          <button class="bottom-popup-btn bottom-popup-secondary" id="ad-close-btn">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="rating-popup-overlay" class="bottom-popup-overlay">
+      <div class="bottom-popup rating-popup">
+        <h3>Rate Our Toolkit</h3>
+        <p>How would you rate your experience with FTGM Tools?</p>
+        <div class="stars">
+          <span class="star" data-rating="1">â˜…</span>
+          <span class="star" data-rating="2">â˜…</span>
+          <span class="star" data-rating="3">â˜…</span>
+          <span class="star" data-rating="4">â˜…</span>
+          <span class="star" data-rating="5">â˜…</span>
+        </div>
+        <button class="bottom-popup-btn bottom-popup-primary" id="submit-rating-btn">Submit Rating</button>
+      </div>
+    </div>
+
+        <div class="footer">
+      <a href="https://whatsapp.com/channel/0029VbAVaylCnA7pF6IP0R46" target="_blank" class="footer-button">Access Main Channel</a>
+      <a href="https://www.mediafire.com/file/96lbqsla3i95k4u/FTGM+Tools.apk/file" target="_blank" class="install-button">
+        <div class="blob1"></div>
+        <div class="inner">
+          <div class="btn-icon-circle" style="background-image: url('https://i.postimg.cc/7hHz3CG9/FTGM-TOOLS.png');"></div>
+          Install FTGM TOOLS Apk
+        </div>
+      </a>
+      <div class="watermark">Â© Developed By Rana Faisal Ali | FTGM HACKS</div>
+        </div>
+    
+    <div class="report-bug-container">
+      <h3><i class="fas fa-comment-alt"></i> Leave a Comment</h3>
+      <input type="email" id="bug-email" placeholder="Your Email (e.g., example@gmail.com)" required/>
+      <textarea id="bug-message" placeholder="Describe the bug or suggestion..." required></textarea>
+      <button id="send-bug-btn"><i class="fas fa-paper-plane"></i> Submit Your Message</button>
+      <p id="bug-status"></p>
+    </div>
+  </div>
+
+  <audio id="hackerClick" src="https://n.f-a-k.workers.dev/mixkit-sci-fi-click.wav" preload="auto"></audio>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
