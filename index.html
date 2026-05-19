@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waria Tools- Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>WARIA TOOLS - Premium Toolkit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -15,13 +15,13 @@
         }
 
         body {
-            background-color: #0b1528;
+            background-color: #0b1425;
             background-image: 
-                radial-gradient(at 50% 0%, rgba(20, 110, 245, 0.15) 0px, transparent 50%),
-                linear-gradient(180deg, #090e17 0%, #0b1528 100%);
+                radial-gradient(at 50% 0%, rgba(0, 240, 255, 0.25) 0px, transparent 50%),
+                linear-gradient(180deg, #070b12 0%, #0b1425 100%);
             color: #ffffff;
             min-height: 100vh;
-            padding: 25px 15px;
+            padding: 30px 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -34,14 +34,15 @@
             margin-bottom: 25px;
         }
 
+        /* ہیڈر کا سائز بالکل مثال کے مطابق بڑا اور بولڈ */
         .main-title {
-            font-size: 28px;
-            font-weight: 700;
+            font-size: 36px; 
+            font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
             color: #00f0ff;
-            text-shadow: 0 0 10px rgba(0, 240, 255, 0.6), 0 0 20px rgba(0, 240, 255, 0.3);
-            margin-bottom: 4px;
+            text-shadow: 0 0 15px rgba(0, 240, 255, 0.7), 0 0 30px rgba(0, 240, 255, 0.3);
+            margin-bottom: 5px;
         }
 
         .main-title span {
@@ -49,284 +50,210 @@
         }
 
         .subtitle {
-            font-size: 11px;
+            font-size: 13px;
             color: #8fa0bc;
             letter-spacing: 0.5px;
-            margin-bottom: 20px;
+            font-weight: 600;
+            margin-bottom: 25px;
         }
 
         .search-box {
             position: relative;
             width: 100%;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .search-box i {
             position: absolute;
-            left: 15px;
+            left: 18px;
             top: 50%;
             transform: translateY(-50%);
             color: #647b9c;
-            font-size: 14px;
+            font-size: 16px;
         }
 
         .search-box input {
             width: 100%;
-            background-color: #070b12;
-            border: 1px solid #162238;
+            background-color: #05080e;
+            border: 2px solid #16263f;
             border-radius: 30px;
-            padding: 12px 15px 12px 45px;
+            padding: 14px 15px 14px 50px;
             color: #ffffff;
-            font-size: 14px;
+            font-size: 15px;
             outline: none;
             transition: all 0.3s ease;
         }
 
         .search-box input:focus {
             border-color: #00f0ff;
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
         }
 
         .notification-bar {
             width: 100%;
-            background-color: #06090f;
-            border: 1px solid #121b2b;
-            border-radius: 8px;
-            padding: 10px 15px;
+            background-color: #05080e;
+            border: 1px solid #121f35;
+            border-radius: 10px;
+            padding: 12px 18px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 12px;
-            color: #a0aec0;
+            font-size: 14px;
+            color: #cbd5e0;
+            font-weight: 600;
             cursor: pointer;
         }
 
         .notification-left {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .notification-left i {
             color: #48bb78;
         }
 
-        /* Tools Grid Layout */
+        /* ٹول گرڈ کا سائز اور ترتیب ۳ کالمز میں بالکل مثال جیسی */
         .tools-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
             width: 100%;
             max-width: 600px;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            margin-top: 15px;
         }
 
-        @media (max-width: 450px) {
-            .tools-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 10px;
-            }
-        }
-
+        /* کارڈز کا فریم اور چمکتا ہوا نیون بارڈر */
         .tool-card {
-            background-color: rgba(9, 15, 27, 0.7);
-            border: 1.5px solid #142847;
-            border-radius: 14px;
+            background: rgba(6, 11, 21, 0.9);
+            border: 2px solid #00f0ff; 
+            border-radius: 18px;
             aspect-ratio: 1 / 1;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 8px;
+            padding: 12px 8px;
             text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
             text-decoration: none;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 12px rgba(0, 240, 255, 0.15);
         }
 
         .tool-card:hover {
-            border-color: #00f0ff;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.2);
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.5);
+            background: #0b182e;
         }
 
+        /* بڑے گرافک امیج ہولڈرز کا سائز */
         .tool-icon-wrapper {
-            width: 48px;
-            height: 48px;
+            width: 65px;
+            height: 65px;
             margin-bottom: 8px;
+            border-radius: 14px;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 12px;
         }
 
-        /* Premium CSS Graphics for Icons to avoid broken image folders */
-        .icon-quran { background: linear-gradient(135deg, #134e5e, #71b280); }
-        .icon-quran::after { content: '📖'; font-size: 24px; }
-        .icon-truecaller { background: linear-gradient(135deg, #0087ff, #00529b); }
-        .icon-truecaller::after { content: '📞'; font-size: 24px; }
-        .icon-pakdata { background: linear-gradient(135deg, #004b23, #38b000); }
-        .icon-pakdata::after { content: '🇵🇰'; font-size: 24px; }
-        .icon-devstore { background: linear-gradient(135deg, #3a0ca3, #7209b7); }
-        .icon-devstore::after { content: '</>'; font-size: 20px; color: #00ffff; font-weight: bold; }
-        .icon-hacker { background: #000; border: 1px solid #39ff14; }
-        .icon-hacker::after { content: '🥷'; font-size: 24px; }
-        .icon-bg { background: linear-gradient(135deg, #ff007f, #7f00ff); }
-        .icon-bg::after { content: '🖼️'; font-size: 24px; }
-        .icon-hosting { background: linear-gradient(135deg, #2193b0, #6dd5ed); }
-        .icon-hosting::after { content: '☁️'; font-size: 24px; }
-        .icon-tempmail { background: linear-gradient(135deg, #e65c00, #f9d423); }
-        .icon-tempmail::after { content: '✉️'; font-size: 24px; }
-        .icon-tv { background: linear-gradient(135deg, #d31027, #ea1e63); }
-        .icon-tv::after { content: '📺'; font-size: 24px; }
-        .icon-reels { background: linear-gradient(135deg, #8a2387, #e94057); }
-        .icon-reels::after { content: '📥'; font-size: 24px; }
-        .icon-fb { background: linear-gradient(135deg, #3b5998, #4c70ba); }
-        .icon-fb::after { content: '📘'; font-size: 24px; }
-        .icon-tiktok { background: #000; }
-        .icon-tiktok::after { content: '🎵'; font-size: 24px; }
-        .icon-capcut { background: linear-gradient(135deg, #2b2d42, #8d99ae); }
-        .icon-capcut::after { content: '👑'; font-size: 24px; }
-        .icon-saver { background: linear-gradient(135deg, #4ecdc4, #556270); }
-        .icon-saver::after { content: '💾'; font-size: 24px; }
-        .icon-cloner { background: linear-gradient(135deg, #1d976c, #93f9b9); }
-        .icon-cloner::after { content: '👥'; font-size: 24px; }
-        .icon-thumb { background: linear-gradient(135deg, #ff416c, #ff4b2b); }
-        .icon-thumb::after { content: '🖼️'; font-size: 24px; }
-        .icon-post { background: linear-gradient(135deg, #11998e, #38ef7d); }
-        .icon-post::after { content: '📝'; font-size: 24px; }
-        .icon-lr { background: #001e36; border: 1.5px solid #31a8ff; }
-        .icon-lr::after { content: 'Lr'; font-size: 20px; color: #31a8ff; font-weight: bold; }
-        .icon-mobiles { background: linear-gradient(135deg, #00c6ff, #0072ff); }
-        .icon-mobiles::after { content: '📱'; font-size: 24px; }
-        .icon-textfile { background: linear-gradient(135deg, #757f9a, #d7dde8); }
-        .icon-textfile::after { content: '📄'; font-size: 24px; }
-        .icon-editor { background: linear-gradient(135deg, #f12711, #f5af19); }
-        .icon-editor::after { content: '📝'; font-size: 24px; }
-        .icon-encrypt { background: linear-gradient(135deg, #3e5151, #decba4); }
-        .icon-encrypt::after { content: '🔒'; font-size: 24px; }
-        .icon-remini { background: linear-gradient(135deg, #b22222, #ff4500); }
-        .icon-remini::after { content: '✨'; font-size: 24px; }
-        .icon-locker { background: linear-gradient(135deg, #1f4068, #162447); }
-        .icon-locker::after { content: '🔗'; font-size: 24px; }
-        .icon-creator { background: linear-gradient(135deg, #bc4e9c, #f80759); }
-        .icon-creator::after { content: '📦'; font-size: 24px; }
-        .icon-boss { background: linear-gradient(135deg, #0f2027, #203a43); }
-        .icon-boss::after { content: '🕶️'; font-size: 24px; }
-        .icon-ludo { background: linear-gradient(135deg, #ea2027, #009432); }
-        .icon-ludo::after { content: '🎲'; font-size: 24px; }
-        .icon-waunban { background: linear-gradient(135deg, #075e54, #25d366); }
-        .icon-waunban::after { content: '💬'; font-size: 24px; }
-        .icon-maker { background: linear-gradient(135deg, #4b6cb7, #182848); }
-        .icon-maker::after { content: '🛠️'; font-size: 24px; }
-        .icon-stalker { background: linear-gradient(135deg, #2c3e50, #3498db); }
-        .icon-stalker::after { content: '🕵️'; font-size: 24px; }
-        .icon-ytstalker { background: linear-gradient(135deg, #e52d27, #b31217); }
-        .icon-ytstalker::after { content: '🎯'; font-size: 24px; }
-        .icon-ss { background: linear-gradient(135deg, #83a4d4, #b6fbff); }
-        .icon-ss::after { content: '📸'; font-size: 24px; }
-        .icon-resizer { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
-        .icon-resizer::after { content: '📐'; font-size: 24px; }
-        .icon-searchimg { background: linear-gradient(135deg, #34495e, #2c3e50); }
-        .icon-searchimg::after { content: '🔍'; font-size: 24px; }
-        .icon-calc { background: linear-gradient(135deg, #333333, #555555); }
-        .icon-calc::after { content: '🔢'; font-size: 24px; }
-        .icon-modding { background: #111; border: 1px dashed #00ffff; }
-        .icon-modding::after { content: '⚙️'; font-size: 24px; }
-        .icon-quiz { background: linear-gradient(135deg, #ff9900, #ff5500); }
-        .icon-quiz::after { content: '❓'; font-size: 24px; }
-        .icon-wabot { background: linear-gradient(135deg, #00b4db, #0083b0); }
-        .icon-wabot::after { content: '🤖'; font-size: 24px; }
-        .icon-assignment { background: linear-gradient(135deg, #6a11cb, #2575fc); }
-        .icon-assignment::after { content: '📝'; font-size: 24px; }
-        .icon-v2mp3 { background: linear-gradient(135deg, #ff00cc, #333399); }
-        .icon-v2mp3::after { content: '🎵'; font-size: 24px; }
-        .icon-waphack { background: linear-gradient(135deg, #130cb7, #52e5e7); }
-        .icon-waphack::after { content: '🔓'; font-size: 24px; }
-        .icon-soon { background: #1a2639; }
-        .icon-soon::after { content: '🚀'; font-size: 24px; }
+        .tool-icon-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
+        /* ٹول کے نام کا واضح اور بولڈ سائز */
         .tool-title {
-            font-size: 10px;
-            font-weight: 600;
-            color: #e2e8f0;
+            font-size: 12px;
+            font-weight: 700;
+            color: #ffffff;
             line-height: 1.2;
+            word-break: break-word;
         }
 
-        /* Status Pills */
+        /* نیچے والے سسٹمز اور انڈیکیٹرز */
         .status-container {
             display: flex;
             gap: 15px;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .status-pill {
-            background-color: #060a12;
-            border: 1px solid #142035;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 11px;
+            background-color: #05080e;
+            border: 1px solid #16263f;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         .status-pill.views i { color: #00f0ff; }
         .status-pill.online i { color: #00ff66; }
 
-        /* Buttons */
         .action-btn {
             width: 100%;
-            max-width: 320px;
-            padding: 14px;
-            border-radius: 30px;
-            font-size: 13px;
+            max-width: 340px;
+            padding: 15px;
+            border-radius: 35px;
+            font-size: 14px;
             font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 1px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
             text-decoration: none;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             transition: all 0.3s;
         }
 
         .btn-channel {
             background: linear-gradient(135deg, #00b4db, #0083b0);
             color: white;
+            box-shadow: 0 4px 15px rgba(0, 180, 219, 0.4);
         }
 
         .btn-apk {
-            background: linear-gradient(135deg, #000, #0d1b2a);
+            background: #05080e;
             color: #ffffff;
             border: 2px solid #00f0ff;
+            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);
         }
 
         .btn-apk:hover {
-            background: #14253d;
+            background: #111f35;
         }
 
         .footer-credits {
-            font-size: 10px;
-            color: #4e617d;
+            font-size: 12px;
+            color: #647b9c;
             margin-top: 15px;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            font-weight: 600;
         }
 
+        /* کمنٹ باکس */
         .comment-section {
             width: 100%;
             max-width: 500px;
-            background: rgba(6, 10, 18, 0.9);
-            border: 1px solid #14223d;
+            background: rgba(5, 8, 14, 0.95);
+            border: 1px solid #16263f;
             border-radius: 16px;
             padding: 20px;
         }
 
         .comment-title {
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 15px;
+            font-weight: 700;
             color: #00f0ff;
             margin-bottom: 15px;
             text-align: center;
@@ -334,8 +261,8 @@
 
         .comment-input {
             width: 100%;
-            background-color: #0b111c;
-            border: 1px solid #1a2e4c;
+            background-color: #0a101a;
+            border: 1px solid #16263f;
             border-radius: 8px;
             padding: 12px;
             color: white;
@@ -345,23 +272,29 @@
         }
 
         .comment-submit {
-            background-color: #1a2e4c;
+            background-color: #12213a;
             color: #00f0ff;
             border: 1px solid #00f0ff;
-            padding: 8px 20px;
+            padding: 10px 20px;
             border-radius: 6px;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 600;
             cursor: pointer;
             width: 100%;
+            transition: all 0.2s;
+        }
+
+        .comment-submit:hover {
+            background-color: #00f0ff;
+            color: #000;
         }
     </style>
 </head>
 <body>
 
     <div class="header-container">
-        <div class="main-title">Waria <span>TOOLS</span></div>
-        <div class="subtitle">Developed By Muhammad Adil Waria®</div>
+        <div class="main-title">WARIA <span>TOOLS</span></div>
+        <div class="subtitle">Developed By Muhammad Adil Waria | WARIA</div>
         
         <div class="search-box">
             <i class="fa-solid fa-magnifying-glass"></i>
@@ -378,48 +311,48 @@
     </div>
 
     <div class="tools-grid" id="toolsGrid">
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-quran"></div><div class="tool-title">Quran Recitation</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-truecaller"></div><div class="tool-title">True Caller</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-pakdata"></div><div class="tool-title">Pak Sim Data</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-devstore"></div><div class="tool-title">Developer Store</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-hacker"></div><div class="tool-title">Full Site Hacker</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-bg"></div><div class="tool-title">Remove BG</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-hosting"></div><div class="tool-title">Free Hosting</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-tempmail"></div><div class="tool-title">Temp Mail</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-tv"></div><div class="tool-title">Live Channels</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-reels"></div><div class="tool-title">Reels Downloader</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-fb"></div><div class="tool-title">FB Downloader</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-tiktok"></div><div class="tool-title">Tiktok Downloader</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-capcut"></div><div class="tool-title">CapCut Pro</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-saver"></div><div class="tool-title">Capcut Saver</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-cloner"></div><div class="tool-title">Web Cloner</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-thumb"></div><div class="tool-title">Thumbnail Saver</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-post"></div><div class="tool-title">Post Maker</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-lr"></div><div class="tool-title">1200+ LR Presets</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-mobiles"></div><div class="tool-title">Mobiles Info</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-textfile"></div><div class="tool-title">Text To File</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-editor"></div><div class="tool-title">HTML Editor</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-encrypt"></div><div class="tool-title">HTML Encryptor</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-remini"></div><div class="tool-title">Remini Pro</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-locker"></div><div class="tool-title">Link Locker</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-creator"></div><div class="tool-title">App Creator</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-boss"></div><div class="tool-title">HTML BOSS</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-ludo"></div><div class="tool-title">Ludo</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-waunban"></div><div class="tool-title">Whatsapp Unban Tool</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-maker"></div><div class="tool-title">Toolkit Maker V2</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-stalker"></div><div class="tool-title">Social Stalker</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-ytstalker"></div><div class="tool-title">YT Stalker</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-ss"></div><div class="tool-title">Full Site SS</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-resizer"></div><div class="tool-title">Img Resizer</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-searchimg"></div><div class="tool-title">Search Image</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-calc"></div><div class="tool-title">X Calculator</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-modding"></div><div class="tool-title">Modding Tools</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-quiz"></div><div class="tool-title">Telenor Quiz</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-wabot"></div><div class="tool-title">Whatsapp BOT</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-assignment"></div><div class="tool-title">Assignment Maker</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-v2mp3"></div><div class="tool-title">Video To Mp3</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-waphack"></div><div class="tool-title">WA DP HACKER</div></a>
-        <a href="#" class="tool-card"><div class="tool-icon-wrapper icon-soon"></div><div class="tool-title">Coming soon</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/2904/2904855.png" alt="Icon"></div><div class="tool-title">Quran Recitation</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Icon"></div><div class="tool-title">True Caller</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/305/305980.png" alt="Icon"></div><div class="tool-title">Pak Sim Data</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/6062/6062646.png" alt="Icon"></div><div class="tool-title">Developer Store</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/1085/1085770.png" alt="Icon"></div><div class="tool-title">Full Site Hacker</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/10255/10255530.png" alt="Icon"></div><div class="tool-title">Remove BG</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/2906/2906238.png" alt="Icon"></div><div class="tool-title">Free Hosting</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Icon"></div><div class="tool-title">Temp Mail</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/3075/3075908.png" alt="Icon"></div><div class="tool-title">Live Channels</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/3938/3938028.png" alt="Icon"></div><div class="tool-title">Reels Downloader</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Icon"></div><div class="tool-title">FB Downloader</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="Icon"></div><div class="tool-title">Tiktok Downloader</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968429.png" alt="Icon"></div><div class="tool-title">CapCut Pro</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/2874/2874780.png" alt="Icon"></div><div class="tool-title">Capcut Saver</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/888/888846.png" alt="Icon"></div><div class="tool-title">Web Cloner</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/3344/3344820.png" alt="Icon"></div><div class="tool-title">Thumbnail Saver</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/9431/9431145.png" alt="Icon"></div><div class="tool-title">Post Maker</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968471.png" alt="Icon"></div><div class="tool-title">1200+ LR Presets</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/644/644458.png" alt="Icon"></div><div class="tool-title">Mobiles Info</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/2965/2965335.png" alt="Icon"></div><div class="tool-title">Text To File</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/919/919827.png" alt="Icon"></div><div class="tool-title">HTML Editor</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/2561/2561334.png" alt="Icon"></div><div class="tool-title">HTML Encryptor</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/1830/1830303.png" alt="Icon"></div><div class="tool-title">Remini Pro</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/2065/2065206.png" alt="Icon"></div><div class="tool-title">Link Locker</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/4436/4436481.png" alt="Icon"></div><div class="tool-title">App Creator</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/2115/2115958.png" alt="Icon"></div><div class="tool-title">HTML BOSS</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/3006/3006155.png" alt="Icon"></div><div class="tool-title">Ludo</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="Icon"></div><div class="tool-title">Whatsapp Unban Tool</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/4436/4436453.png" alt="Icon"></div><div class="tool-title">Toolkit Maker V2</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/924/924915.png" alt="Icon"></div><div class="tool-title">Social Stalker</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="Icon"></div><div class="tool-title">YT Stalker</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/3687/3687412.png" alt="Icon"></div><div class="tool-title">Full Site SS</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/2921/2921113.png" alt="Icon"></div><div class="tool-title">Img Resizer</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/751/751381.png" alt="Icon"></div><div class="tool-title">Search Image</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/2344/2344132.png" alt="Icon"></div><div class="tool-title">X Calculator</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/2092/2092040.png" alt="Icon"></div><div class="tool-title">Modding Tools</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/3407/3407119.png" alt="Icon"></div><div class="tool-title">Telenor Quiz</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/4712/4712139.png" alt="Icon"></div><div class="tool-title">Whatsapp BOT</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/3534/3534063.png" alt="Icon"></div><div class="tool-title">Assignment Maker</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/3048/3048419.png" alt="Icon"></div><div class="tool-title">Video To Mp3</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/2202/2202112.png" alt="Icon"></div><div class="tool-title">WA DP HACKER</div></a>
+        <a href="#" class="tool-card"><div class="tool-icon-wrapper"><img src="https://cdn-icons-png.flaticon.com/512/1356/1356479.png" alt="Icon"></div><div class="tool-title">Coming soon</div></a>
     </div>
 
     <div class="status-container">
@@ -436,16 +369,17 @@
     <a href="#" class="action-btn btn-channel"><i class="fa-brands fa-telegram"></i> Access Waria Channels</a>
     <a href="#" class="action-btn btn-apk"><i class="fa-brands fa-android"></i> Install Waria Tools APK</a>
 
-    <div class="footer-credits">© Developed By Muhammad Adil Waria® | WARIA TOOLS</div>
+    <div class="footer-credits">© Developed By Muhammad Adil Waria | WARIA TOOLS</div>
 
     <div class="comment-section">
         <div class="comment-title">Leave a Comment</div>
         <input type="email" class="comment-input" placeholder="Your Email">
         <textarea class="comment-input" rows="3" placeholder="Write your feedback here..."></textarea>
-        <button class="comment-submit" onclick="alert('شکریہ!')">Submit Comment</button>
+        <button class="comment-submit" onclick="alert('شکریہ! آپ کا کمنٹ محفوظ کر لیا گیا ہے۔')">Submit Comment</button>
     </div>
 
     <script>
+        // لائیو سرچ سسٹم
         const searchInput = document.getElementById('toolSearch');
         const cards = document.querySelectorAll('.tool-card');
         searchInput.addEventListener('input', function() {
@@ -455,6 +389,13 @@
                 card.style.display = title.includes(query) ? 'flex' : 'none';
             });
         });
+
+        // لائیو ویوز اینیمیشن
+        let count = 123;
+        setInterval(() => {
+            count += Math.floor(Math.random() * 3);
+            document.getElementById('viewCounter').innerText = count;
+        }, 6000);
     </script>
 </body>
 </html>
