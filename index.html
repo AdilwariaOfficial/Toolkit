@@ -3,12 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Adilwaria Digital Academy | Empowering Education & Tech</title>
-    
-    <meta name="description" content="Welcome to Adilwaria Digital Academy. Providing free curriculum resources for Wafaq-ul-Madaris, Punjab Board, and AIOU, alongside elite digital tools and courses.">
-    <meta name="keywords" content="Adilwaria, Digital Academy, Wafaq ul Madaris Syllabus, Punjab Board Books, AIOU Helping Material, Free AI Courses, Premium Mod APKs">
-    <meta name="author" content="Adilwaria">
-
+    <title>Adilwaria® | Open Source Knowledge Hub</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -16,92 +11,289 @@
 
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">ADIL<span class="highlight">WARIA</span></a>
-            
-            <div class="nav-right-element">
+            <div class="nav-left">
+                <a href="index.html" class="home-icon-link"><i class="fa-solid fa-house"></i></a>
+                <a href="index.html" class="logo">ADILWARIA<span class="registered-mark">®</span></a>
+            </div>
+            <div class="nav-right">
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="library.html">Library</a></li>
-                    <li><a href="tools.html">Tools</a></li>
                     <li><a href="courses.html">Courses</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="tools.html">Tools</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
-                
-                <button id="theme-toggle" class="theme-switch-btn" aria-label="Toggle Theme">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
             </div>
         </div>
     </nav>
 
     <header class="hero-section">
         <div class="hero-overlay"></div>
-        <div class="container hero-inner">
-            <span class="brand-badge">The Future of Knowledge & Innovation</span>
-            <h1 class="brand-title">ADILWARIA <br><span class="gradient-text">DIGITAL ACADEMY</span></h1>
-            <p class="brand-tagline">Bridging Traditional Knowledge, Academic Excellence & Future Technology</p>
-            
+        <div class="container hero-inner text-center">
+            <h1 class="brand-title">ADILWARIA<span class="registered-mark">®</span></h1>
+            <p class="brand-tagline">Open Source Knowledge Hub</p>
             <div class="hero-action-btns">
-                <a href="library.html" class="main-btn btn-primary-lux"><i class="fa-solid fa-book-atlas"></i> Explore Library</a>
+                <a href="#digital-library-section" class="main-btn btn-primary-lux"><i class="fa-solid fa-book-atlas"></i> Explore Library</a>
                 <a href="courses.html" class="main-btn btn-secondary-lux"><i class="fa-solid fa-graduation-cap"></i> Free Courses</a>
             </div>
         </div>
     </header>
 
-    <section class="academy-mission">
+    <section class="search-theme-bar-section" id="digital-library-section">
         <div class="container">
-            <div class="glass-info-card">
-                <h2>Our Mission | ہمارا عزم</h2>
-                <p class="urdu-mission-text">
-                    عادل وریا ڈیجیٹل اکیڈمی کا مقصد وفاق المدارس العربیہ، پنجاب بورڈ، اور علامہ اقبال اوپن یونیورسٹی کے طلبہ کو ایک ہی چھت تلے مکمل نصابی و امدادی کتب فراہم کرنا ہے۔ اس کے ساتھ ساتھ نوجوانوں کو جدید ٹیکنالوجی، آرٹیفیشل انٹیلیجنس (AI) اور پریمیم اینڈرائیڈ ٹولز کے ذریعے بااختیار بنانا ہماری اولین ترجیح ہے، تاکہ ہر طالب علم بغیر کسی فیس کے عالمی معیار کی تعلیم اور ہنر حاصل کر سکے۔
-                </p>
-                <div class="features-mini-grid">
-                    <div class="mini-feature">
-                        <i class="fa-solid fa-circle-check"></i> <span>100% Free Resources</span>
-                    </div>
-                    <div class="mini-feature">
-                        <i class="fa-solid fa-circle-check"></i> <span>Clean Dashboard Interface</span>
-                    </div>
-                    <div class="mini-feature">
-                        <i class="fa-solid fa-circle-check"></i> <span>Direct Cloud Downloads</span>
-                    </div>
+            <div class="search-theme-bar">
+                <div class="search-box-container-sk">
+                    <i class="fa-solid fa-magnifying-glass search-icon-sk"></i>
+                    <input type="text" id="library-search-sk" placeholder="Search here... کتاب کا نام تلاش کریں">
+                </div>
+                <div class="theme-switch-wrapper">
+                    <span class="theme-label-text">نازک موشن</span>
+                    <button id="theme-toggle" class="theme-switch-btn-sk">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <a href="https://wa.me/923000000000?text=Assalam-o-Alaikum%20Adilwaria%20Academy" class="whatsapp-sticky-btn" target="_blank" rel="noopener noreferrer">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
+    <section class="library-dashboard-section">
+        <div class="container">
+            <div class="dashboard-heading">
+                <span class="heading-line"></span>
+                <h2>Categories:</h2>
+                <h3>Digital Library:</h3>
+            </div>
+
+            <div class="boards-master-grid-sk">
+                <div class="glass-card board-card-sk" id="card-wafaq" onclick="selectBoard('wafaq')">
+                    <div class="board-icon-sk"><i class="fa-solid fa-mosque"></i></div>
+                    <h4>وفاق المدارس</h4>
+                    <p>Wafaq-ul-Madaris</p>
+                </div>
+                <div class="glass-card board-card-sk" id="card-punjab" onclick="selectBoard('punjab')">
+                    <div class="board-icon-sk"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h4>تمام بورڈز</h4>
+                    <p>All Boards (9th &rarr; 12th)</p>
+                </div>
+                <div class="glass-card board-card-sk" id="card-aiou" onclick="selectBoard('aiou')">
+                    <div class="board-icon-sk"><i class="fa-solid fa-building-columns"></i></div>
+                    <h4>علامہ اقبال اوپن یونیورسٹی</h4>
+                    <p>AIOU Syllabus</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="dynamic-filter-container d-none-sk" id="dynamic-filter-box">
+        <div class="container">
+            <div class="glass-card filter-inner-wrapper">
+                
+                <div class="tabs-header-sk">
+                    <button class="tab-link-sk active" onclick="selectTab('syllabus')">Text books (نصابی کتب)</button>
+                    <button class="tab-link-sk" onclick="selectTab('helping')">Helping books (امدادی کتب)</button>
+                </div>
+
+                <div class="classes-layout-engine">
+                    
+                    <div class="classes-buttons-grid d-none-sk" id="classes-wafaq">
+                        <button class="class-btn-sk" onclick="selectClass('دوره حدیث')">دوره حدیث</button>
+                        <button class="class-btn-sk" onclick="selectClass('موقوف علیہ')">موقوف علیہ</button>
+                        <button class="class-btn-sk" onclick="selectClass('عالمیہ دوم')">عالمیہ دوم</button>
+                        <button class="class-btn-sk" onclick="selectClass('عالیہ اول')">عالیہ اول</button>
+                        <button class="class-btn-sk" onclick="selectClass('خاصہ دوم')">خاصہ دوم</button>
+                        <button class="class-btn-sk" onclick="selectClass('خاصہ اول')">خاصہ اول</button>
+                        <button class="class-btn-sk" onclick="selectClass('عامہ دوم')">عامہ دوم</button>
+                        <button class="class-btn-sk" onclick="selectClass('عامہ اول')">عامہ اول</button>
+                        <button class="class-btn-sk" onclick="selectClass('اولیٰ')">اولیٰ</button>
+                        <button class="class-btn-sk" onclick="selectClass('تجوید')">تجوید</button>
+                        <button class="class-btn-sk" onclick="selectClass('دواسات اول')">دواسات اول</button>
+                        <button class="class-btn-sk" onclick="selectClass('دواسات دوم')">دواسات دوم</button>
+                    </div>
+
+                    <div class="classes-buttons-grid d-none-sk" id="classes-punjab">
+                        <button class="class-btn-sk" onclick="selectClass('9th Class')">9th Class</button>
+                        <button class="class-btn-sk" onclick="selectClass('10th Class')">10th Class</button>
+                        <button class="class-btn-sk" onclick="selectClass('11th Class')">11th Class (1st Year)</button>
+                        <button class="class-btn-sk" onclick="selectClass('12th Class')">12th Class (2nd Year)</button>
+                    </div>
+
+                    <div class="classes-buttons-grid d-none-sk" id="classes-aiou">
+                        <button class="class-btn-sk" onclick="selectClass('Matric / FA')">میٹرک / ایف اے</button>
+                        <button class="class-btn-sk" onclick="selectClass('BS Program')">بی ایس پروگرام</button>
+                        <button class="class-btn-sk" onclick="selectClass('M.A Programs')">ایم اے پروگرامز</button>
+                    </div>
+
+                    <div class="vertical-board-badge">
+                        <span id="vertical-text-target">Wafaq-ul-Madaris</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <main class="books-render-area d-none-sk" id="books-render-zone">
+        <div class="container">
+            <h3 class="current-selection-heading text-center" id="selection-title">مطلوبہ کتب</h3>
+            <div class="books-master-grid" id="books-output-grid">
+                </div>
+        </div>
+    </main>
+
+    <a href="https://wa.me/923000000000" class="whatsapp-sticky-btn" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Adilwaria Digital Academy. Empowering the Nation. All Rights Reserved.</p>
+        <div class="container text-center">
+            <p>&copy; 2026 Adilwaria Digital Academy. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const bodyElement = document.body;
-        const iconElement = themeToggleBtn.querySelector('i');
+        // کتب کا ڈیٹا بیس
+        const booksDatabase = [
+            { title: "صحیح البخاری جلد اول", board: "wafaq", type: "syllabus", className: "دوره حدیث", link: "#" },
+            { title: "ہدایہ اول", board: "wafaq", type: "syllabus", className: "موقوف علیہ", link: "#" },
+            { title: "خلاصہ نحومیر (امدادی)", board: "wafaq", type: "helping", className: "عامہ اول", link: "#" },
+            { title: "Matric Physics Textbook", board: "punjab", type: "syllabus", className: "10th Class", link: "#" },
+            { title: "9th Chemistry Guide Book", board: "punjab", type: "helping", className: "9th Class", link: "#" },
+            { title: "AIOU Islamiyat 416", board: "aiou", type: "syllabus", className: "Matric / FA", link: "#" }
+        ];
 
-        // بٹن پر کلک کرنے کا فنکشن
-        themeToggleBtn.addEventListener('click', () => {
-            if (bodyElement.classList.contains('light-mode')) {
-                // ڈارک موڈ آن کریں
-                bodyElement.classList.remove('light-mode');
-                bodyElement.classList.add('dark-mode');
-                iconElement.classList.remove('fa-moon');
-                iconElement.classList.add('fa-sun');
+        let selectedBoard = '';
+        let selectedTab = 'syllabus';
+        let selectedClass = '';
+
+        // بورڈ سلیکٹ کرنے کا فنکشن (نقشے کے مطابق کلک پر کھلے گا)
+        function selectBoard(boardId) {
+            selectedBoard = boardId;
+            selectedClass = ''; // پرانی کلاس ری سیٹ کریں
+            
+            // کتابوں کا زون چھپائیں
+            document.getElementById('books-render-zone').classList.add('d-none-sk');
+
+            // ایکٹو کارڈ کا اسٹائل بدلیں
+            document.querySelectorAll('.board-card-sk').forEach(c => c.classList.remove('active'));
+            document.getElementById(`card-${boardId}`).classList.add('active');
+
+            // جادوئی باکس کو اینیمیشن کے ساتھ دکھائیں
+            const filterBox = document.getElementById('dynamic-filter-box');
+            filterBox.classList.remove('d-none-sk');
+            filterBox.style.animation = "slideDown 0.4s ease forwards";
+
+            // تمام کلاسز کی لسٹس چھپائیں اور صرف منتخب بورڈ کی لسٹ دکھائیں
+            document.querySelectorAll('.classes-buttons-grid').forEach(g => g.classList.add('d-none-sk'));
+            document.getElementById(`classes-${boardId}`).classList.remove('d-none-sk');
+
+            // سائیڈ والی عمودی پٹی کا نام تبدیل کریں
+            const verticalText = document.getElementById('vertical-text-target');
+            if(boardId === 'wafaq') verticalText.innerText = "Wafaq-ul-Madaris";
+            if(boardId === 'punjab') verticalText.innerText = "All Punjab Boards";
+            if(boardId === 'aiou') verticalText.innerText = "AIOU University";
+
+            // پیج کو اسموتھ نیچے سکرول کریں تاکہ یوزر کو آپشنز نظر آئیں
+            setTimeout(() => { filterBox.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 150);
+        }
+
+        // ٹیب سلیکٹ کرنے کا فنکشن (نصابی / امدادی)
+        function selectTab(tabType) {
+            selectedTab = tabType;
+            document.querySelectorAll('.tab-link-sk').forEach(t => t.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            
+            if(selectedClass) { renderBooks(); }
+        }
+
+        // کلاس سلیکٹ کرنے کا فنکشن
+        function selectClass(className) {
+            selectedClass = className;
+            document.querySelectorAll('.class-btn-sk').forEach(b => b.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            
+            renderBooks();
+        }
+
+        // کتب کو گرڈ میں رینڈر کرنے کا انجن
+        function renderBooks() {
+            const renderZone = document.getElementById('books-render-zone');
+            const grid = document.getElementById('books-output-grid');
+            const title = document.getElementById('selection-title');
+
+            grid.innerHTML = '';
+            renderZone.classList.remove('d-none-sk');
+            title.innerText = `${selectedClass} ─── (${selectedTab === 'syllabus' ? 'نصابی کتب' : 'امدادی کتب'})`;
+
+            const filteredBooks = booksDatabase.filter(b => 
+                b.board === selectedBoard && 
+                b.type === selectedTab && 
+                b.className === selectedClass
+            );
+
+            if(filteredBooks.length === 0) {
+                grid.innerHTML = `<div class="no-books-msg">اس کیٹیگری میں ابھی کتب اپلوڈ ہو رہی ہیں، جلد دستیاب ہوں گی ان شاء اللہ۔</div>`;
             } else {
-                // لائٹ موڈ آن کریں
-                bodyElement.classList.remove('dark-mode');
-                bodyElement.classList.add('light-mode');
-                iconElement.classList.remove('fa-sun');
-                iconElement.classList.add('fa-moon');
+                filteredBooks.forEach(book => {
+                    grid.innerHTML += `
+                        <div class="glass-card book-card-item">
+                            <div class="book-icon-wrapper"><i class="fa-solid fa-book-bookmark"></i></div>
+                            <h4>${book.title}</h4>
+                            <p class="book-tag-info">${book.className}</p>
+                            <a href="${book.link}" class="download-book-btn" target="_blank"><i class="fa-solid fa-cloud-arrow-down"></i> Download PDF</a>
+                        </div>
+                    `;
+                });
+            }
+            
+            setTimeout(() => { renderZone.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
+        }
+
+        // اسمارٹ سرچ فنکشن
+        document.getElementById('library-search-sk').addEventListener('input', function(e) {
+            const keyword = e.target.value.toLowerCase().trim();
+            const renderZone = document.getElementById('books-render-zone');
+            const grid = document.getElementById('books-output-grid');
+            const title = document.getElementById('selection-title');
+
+            if(keyword === '') {
+                if(selectedClass) { renderBooks(); } else { renderZone.classList.add('d-none-sk'); }
+                return;
+            }
+
+            renderZone.classList.remove('d-none-sk');
+            title.innerText = `سرچ رزلٹس: "${keyword}"`;
+            grid.innerHTML = '';
+
+            const matches = booksDatabase.filter(b => b.title.toLowerCase().includes(keyword));
+
+            if(matches.length === 0) {
+                grid.innerHTML = `<div class="no-books-msg">معذرت، اس نام کی کوئی کتاب نہیں ملی!</div>`;
+                return;
+            }
+
+            matches.forEach(book => {
+                grid.innerHTML += `
+                    <div class="glass-card book-card-item">
+                        <div class="book-icon-wrapper"><i class="fa-solid fa-book-bookmark"></i></div>
+                        <h4>${book.title}</h4>
+                        <p class="book-tag-info">${book.board.toUpperCase()} | ${book.className}</p>
+                        <a href="${book.link}" class="download-book-btn" target="_blank"><i class="fa-solid fa-cloud-arrow-down"></i> Download</a>
+                    </div>
+                `;
+            });
+        });
+
+        // تھیم سوئچر (لائٹ / ڈارک موڈ ہینڈلر)
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            document.body.classList.toggle('light-mode');
+            const icon = themeToggleBtn.querySelector('i');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
             }
         });
     </script>
-
 </body>
 </html>
