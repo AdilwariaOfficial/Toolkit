@@ -12,18 +12,25 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
 
+                /* لائٹ اور ڈارک موڈ کے نئے، ڈیسنٹ رنگ */
         body.light-mode {
-            --bg-color: #f8fafc; --text-color: #0f172a;
-            --navbar-bg: rgba(248, 250, 252, 0.95); --navbar-border: rgba(15, 23, 42, 0.08);
-            --card-bg: #ffffff; --card-border: rgba(15, 23, 42, 0.06);
+            --bg-color: #f1f5f9; /* تھوڑا سا گہرا بیک گراؤنڈ تاکہ کارڈز چمکیں */
+            --text-color: #1e293b; /* گہرا نیلا/سرمئی رنگ */
+            --navbar-bg: rgba(255, 255, 255, 0.8);
+            --navbar-border: rgba(0, 0, 0, 0.05);
+            --card-bg: #ffffff; 
+            --card-border: rgba(0, 0, 0, 0.08); /* بارڈر کو ڈیسنٹ کیا */
             --text-muted: #64748b;
         }
         body.dark-mode {
-            --bg-color: #050c0e; --text-color: #f8fafc;
-            --navbar-bg: rgba(5, 12, 14, 0.95); --navbar-border: rgba(255, 255, 255, 0.05);
-            --card-bg: #0d1619; --card-border: rgba(255, 255, 255, 0.06);
+            --bg-color: #020617; /* جدید، گہرا نیلگوں سیاہ */
+            --text-color: #f1f5f9;
+            --navbar-bg: rgba(2, 6, 23, 0.9);
+            --card-bg: #0f172a; 
+            --card-border: rgba(255, 255, 255, 0.05);
             --text-muted: #94a3b8;
         }
+
 
         body { background-color: var(--bg-color); color: var(--text-color); overflow-x: hidden; }
         .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
