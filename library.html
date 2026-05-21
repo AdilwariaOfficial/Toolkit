@@ -1,27 +1,25 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="ur" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لائبریری | Adilwaria</title>
+    <title>جنرل لائبریری | Adilwaria</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
         body { background-color: #f1f5f9; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; padding: 20px; color: #1e293b; }
-        
         .container { max-width: 1000px; margin: 0 auto; }
-        h2 { text-align: center; margin-bottom: 30px; }
+        h2 { text-align: center; margin-bottom: 20px; }
+        
+        /* سرچ بار */
+        .search-container { text-align: center; margin-bottom: 30px; }
+        .search-bar { width: 100%; max-width: 500px; padding: 12px 20px; border-radius: 30px; border: 1px solid #cbd5e1; outline: none; }
 
         /* کتابوں کا گرڈ */
         .books-master-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; }
-        
-        .book-card-item { background: #ffffff; border: 1px solid #e2e8f0; padding: 15px; border-radius: 12px; transition: 0.3s; text-align: center; }
-        .book-card-item:hover { transform: translateY(-5px); border-color: #10b981; box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
-        
-        .book-thumb { width: 100%; height: 140px; background: #f8fafc; border-radius: 8px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #10b981; border: 1px dashed #cbd5e1; }
-        
-        .book-title { font-size: 0.85rem; font-weight: 700; margin-bottom: 10px; display: block; height: 35px; overflow: hidden; }
-        
+        .book-card-item { background: #ffffff; padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0; text-align: center; transition: 0.3s; }
+        .book-card-item:hover { border-color: #10b981; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .book-thumb { font-size: 2rem; color: #10b981; margin-bottom: 10px; }
+        .book-title { font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 10px; }
         .book-btns { display: flex; gap: 5px; }
         .btn-read { flex: 2; background: #10b981; color: white; padding: 8px 0; border-radius: 6px; text-decoration: none; font-size: 0.7rem; }
         .btn-download { flex: 1; background: #e2e8f0; color: #1e293b; padding: 8px 0; border-radius: 6px; text-decoration: none; font-size: 0.8rem; }
@@ -30,14 +28,18 @@
 <body>
 
 <div class="container">
-    <h2>لائبریری کی تمام کتب</h2>
+    <h2>جنرل لائبریری</h2>
+    <div class="search-container">
+        <input type="text" class="search-bar" placeholder="کتاب تلاش کریں...">
+    </div>
+    
     <div class="books-master-grid">
         <script>
             for(let i=1; i<=20; i++) {
                 document.write(`
                     <div class="book-card-item">
                         <div class="book-thumb"><i class="fa-solid fa-book"></i></div>
-                        <span class="book-title">کتاب نمبر ${i}: اسلامک اسٹڈیز</span>
+                        <span class="book-title">کتاب نمبر ${i}</span>
                         <div class="book-btns">
                             <a href="#" class="btn-read">مطالعہ کریں</a>
                             <a href="#" class="btn-download"><i class="fa-solid fa-download"></i></a>
@@ -51,3 +53,4 @@
 
 </body>
 </html>
+         
