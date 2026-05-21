@@ -1,379 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Adilwaria® | Open Source Knowledge Hub</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adilwaria | Open Source Knowledge Hub</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-
-                /* لائٹ اور ڈارک موڈ کے نئے، ڈیسنٹ رنگ */
-        body.light-mode {
-            --bg-color: #f1f5f9; /* تھوڑا سا گہرا بیک گراؤنڈ تاکہ کارڈز چمکیں */
-            --text-color: #1e293b; /* گہرا نیلا/سرمئی رنگ */
-            --navbar-bg: rgba(255, 255, 255, 0.8);
-            --navbar-border: rgba(0, 0, 0, 0.05);
-            --card-bg: #ffffff; 
-            --card-border: rgba(0, 0, 0, 0.08); /* بارڈر کو ڈیسنٹ کیا */
-            --text-muted: #64748b;
-        }
-        body.dark-mode {
-            --bg-color: #020617; /* جدید، گہرا نیلگوں سیاہ */
-            --text-color: #f1f5f9;
-            --navbar-bg: rgba(2, 6, 23, 0.9);
-            --card-bg: #0f172a; 
-            --card-border: rgba(255, 255, 255, 0.05);
-            --text-muted: #94a3b8;
-        }
-
-
-        body { background-color: var(--bg-color); color: var(--text-color); overflow-x: hidden; }
-        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .text-center { text-align: center; }
-        .hidden-element { display: none !important; }
-
-        /* مینو بار */
-        .navbar { background: var(--navbar-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--navbar-border); position: sticky; top: 0; z-index: 1000; padding: 15px 0; }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; }
-        .nav-left { display: flex; align-items: center; gap: 12px; }
-        .home-icon-link { color: #10b981; font-size: 1.3rem; text-decoration: none; }
-        .logo { font-size: 1.3rem; font-weight: 800; color: var(--text-color); text-decoration: none; letter-spacing: 0.5px; }
-        .registered-mark { color: #10b981; font-size: 0.75rem; vertical-align: super; }
-        .nav-links { display: flex; list-style: none; gap: 20px; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; font-weight: 600; }
-        .nav-links a.active { color: #10b981; }
-
-        /* ہیڈر */
-        .hero-section { padding: 40px 0 20px 0; background: linear-gradient(135deg, rgba(16,185,129,0.05) 0%, rgba(5,12,14,0.01) 100%); }
-        .brand-title { font-size: 3.2rem; font-weight: 800; text-align: center; margin-bottom: 5px; }
-        .brand-tagline { color: #10b981; font-size: 1.2rem; font-weight: 600; text-align: center; letter-spacing: 1px; }
-
-        /* سرچ بار */
-        .search-theme-bar { display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); border: 1px solid var(--card-border); padding: 10px 15px; border-radius: 50px; margin-bottom: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); gap: 10px; }
-        .search-box-container-sk { position: relative; flex: 1; }
-        .search-icon-sk { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
-        #library-search-sk { width: 100%; padding: 10px 15px 10px 40px; border-radius: 30px; border: 1px solid var(--navbar-border); background: var(--bg-color); color: var(--text-color); outline: none; text-align: right; direction: rtl; font-size: 0.9rem; }
-        .theme-switch-btn-sk { background: var(--bg-color); border: 1px solid var(--navbar-border); color: var(--text-color); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
-
-        /* ۴ کارڈز کا گرڈ */
-        .dashboard-heading { margin-bottom: 25px; }
-        .dashboard-heading h2 { font-size: 1.1rem; color: var(--text-muted); font-weight: 600; }
-        .dashboard-heading h3 { font-size: 1.6rem; font-weight: 800; color: #10b981; }
-        .boards-master-grid-sk { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 30px; }
-        .board-card-sk { background: var(--card-bg); border: 1px solid var(--card-border); padding: 20px 10px; text-align: center; cursor: pointer; border-radius: 14px; transition: all 0.2s; display: flex; flex-direction: column; justify-content: center; min-height: 140px; }
-        .board-icon-sk { width: 45px; height: 45px; background: rgba(16, 185, 129, 0.08); color: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin: 0 auto 10px auto; }
-        .board-card-sk h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; line-height: 1.3; }
-        .board-card-sk p { font-size: 0.75rem; color: var(--text-muted); line-height: 1.2; }
-        .board-card-sk:hover { transform: translateY(-3px); border-color: rgba(16, 185, 129, 0.3); }
-        .board-card-sk.active { border-color: #10b981; background: rgba(16, 185, 129, 0.04); box-shadow: 0 4px 15px rgba(16,185,129,0.1); }
-
-        /* آپشنز بٹن ایریا */
-        .dynamic-filter-container { margin-bottom: 20px; }
-        .filter-inner-wrapper { background: var(--card-bg); border: 1px solid var(--card-border); padding: 20px; border-radius: 16px; animation: slideDown 0.2s ease-out; }
-        .tabs-header-sk { display: flex; justify-content: center; gap: 12px; }
-        .tab-link-sk { background: var(--bg-color); border: 1px solid var(--navbar-border); color: var(--text-color); padding: 12px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: all 0.2s; flex: 1; max-width: 200px; text-align: center; }
-        .tab-link-sk.active { background: #10b981; color: #ffffff; border-color: #10b981; }
-
-        /* کلاسز باکس */
-        .classes-render-container { margin-bottom: 20px; animation: slideDown 0.2s ease-out; }
-        .classes-layout-engine { display: flex; gap: 20px; background: var(--card-bg); border: 1px solid var(--card-border); padding: 20px; border-radius: 16px; }
-        .classes-buttons-grid { flex: 1; display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; direction: rtl; }
-        .class-btn-sk { background: var(--bg-color); border: 1px solid var(--navbar-border); color: var(--text-color); padding: 12px 8px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer; text-align: center; transition: all 0.2s; }
-        .class-btn-sk:hover, .class-btn-sk.active { border-color: #10b981; color: #10b981; background: rgba(16, 185, 129, 0.05); }
-
-        .vertical-board-badge { width: 35px; border-left: 2px solid #10b981; display: flex; align-items: center; justify-content: center; padding-left: 8px; }
-        .vertical-board-badge span { writing-mode: vertical-rl; transform: rotate(180deg); font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; color: #10b981; text-align: center; }
-
-        /* فائنل کتب زون */
-        .books-render-area { padding: 30px 0; background: rgba(16, 185, 129, 0.01); border-top: 1px solid var(--navbar-border); animation: slideDown 0.2s ease-out; }
-        .current-selection-heading { font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; }
-        .no-books-msg { width: 100%; text-align: center; color: var(--text-muted); font-size: 0.95rem; padding: 20px 0; direction: rtl; }
-
-        .whatsapp-sticky-btn { position: fixed; width: 50px; height: 50px; bottom: 20px; right: 20px; background-color: #25d366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; z-index: 9999; text-decoration: none; box-shadow: 0 4px 12px rgba(37,211,102,0.3); }
-        footer { text-align: center; padding: 25px 0; border-top: 1px solid var(--navbar-border); color: var(--text-muted); font-size: 0.85rem; margin-top: 30px; }
-
-        @keyframes slideDown { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
-
-        @media (max-width: 768px) {
-            .nav-container { flex-direction: column; gap: 10px; }
-            .nav-links { gap: 12px; flex-wrap: wrap; justify-content: center; }
-            .brand-title { font-size: 2.2rem; }
-            .boards-master-grid-sk { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-            .classes-layout-engine { flex-direction: column-reverse; gap: 15px; padding: 15px; }
-            .vertical-board-badge { width: 100%; border-left: none; border-top: 2px solid #10b981; padding-left: 0; padding-top: 8px; }
-            .vertical-board-badge span { writing-mode: horizontal-tb; transform: rotate(0); }
-        }
+        :root { --primary-color: #059669; --bg-color: #f8fafc; --card-bg: #ffffff; }
+        body { background-color: var(--bg-color); font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 20px; color: #334155; }
+        
+        .header { text-align: center; margin-bottom: 30px; }
+        .search-bar { width: 100%; max-width: 500px; padding: 12px; border-radius: 25px; border: 1px solid #ddd; margin-bottom: 30px; outline: none; }
+        
+        .grid-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; max-width: 600px; margin: 0 auto; }
+        
+        .card { background: var(--card-bg); padding: 20px; border-radius: 15px; border: 1px solid #e2e8f0; text-align: center; cursor: pointer; transition: 0.3s; }
+        .card:hover { border-color: var(--primary-color); box-shadow: 0 10px 15px rgba(0,0,0,0.05); transform: translateY(-5px); }
+        .card i { font-size: 2rem; color: var(--primary-color); margin-bottom: 10px; }
+        .card h4 { margin: 5px 0; font-size: 1rem; }
+        .card p { font-size: 0.75rem; color: #64748b; margin: 0; }
     </style>
 </head>
-<body class="light-mode">
+<body>
 
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-left">
-                <a href="index.html" class="home-icon-link"><i class="fa-solid fa-house"></i></a>
-                <a href="index.html" class="logo">ADILWARIA<span class="registered-mark">®</span></a>
-            </div>
-            <div class="nav-right">
-                <ul class="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="library.html">Library</a></li>
-                    <li><a href="courses.html">Courses</a></li>
-                    <li><a href="tools.html">Tools</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<div class="header">
+    <h1>ADILWARIA</h1>
+    <input type="text" class="search-bar" placeholder="کتاب تلاش کریں...">
+</div>
 
-    <header class="hero-section">
-        <div class="container text-center">
-            <h1 class="brand-title">ADILWARIA<span class="registered-mark">®</span></h1>
-            <p class="brand-tagline">Open Source Knowledge Hub</p>
-        </div>
-    </header>
+<div class="grid-container">
+    <div class="card" onclick="window.location.href='wafaq.html'">
+        <i class="fa-solid fa-mosque"></i>
+        <h4>وفاق المدارس</h4>
+        <p>Wafaq-ul-Madaris</p>
+    </div>
+    <div class="card" onclick="window.location.href='boards.html'">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <h4>تمام بورڈز</h4>
+        <p>All Boards</p>
+    </div>
+    <div class="card" onclick="window.location.href='aiou.html'">
+        <i class="fa-solid fa-building-columns"></i>
+        <h4>اوپن یونیورسٹی</h4>
+        <p>AIOU Syllabus</p>
+    </div>
+    <div class="card" id="card-general" onclick="window.location.href='library.html'">
+        <i class="fa-solid fa-book-open"></i>
+        <h4>جنرل لائبریری</h4>
+        <p>General Library</p>
+    </div>
+</div>
 
-    <section class="search-theme-bar-section">
-        <div class="container">
-            <div class="search-theme-bar">
-                <div class="search-box-container-sk">
-                    <i class="fa-solid fa-magnifying-glass search-icon-sk"></i>
-                    <input type="text" id="library-search-sk" placeholder="Search here... کتاب تلاش کریں">
-                </div>
-                <div class="theme-switch-wrapper">
-                    <button id="theme-toggle" class="theme-switch-btn-sk"><i class="fa-solid fa-moon"></i></button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="library-dashboard-section">
-        <div class="container">
-            <div class="dashboard-heading">
-                <h2>Categories:</h2>
-                <h3>Digital Library:</h3>
-            </div>
-
-            <div class="boards-master-grid-sk">
-                <div class="board-card-sk" id="card-wafaq" onclick="handleBoardClick('wafaq')">
-                    <div class="board-icon-sk"><i class="fa-solid fa-mosque"></i></div>
-                    <h4>وفاق المدارس</h4>
-                    <p>Wafaq-ul-Madaris</p>
-                </div>
-                <div class="board-card-sk" id="card-punjab" onclick="handleBoardClick('punjab')">
-                    <div class="board-icon-sk"><i class="fa-solid fa-graduation-cap"></i></div>
-                    <h4>تمام بورڈز</h4>
-                    <p>All Boards (9th &rarr; 12th)</p>
-                </div>
-                <div class="board-card-sk" id="card-aiou" onclick="handleBoardClick('aiou')">
-                    <div class="board-icon-sk"><i class="fa-solid fa-building-columns"></i></div>
-                    <h4>اوپن یونیورسٹی</h4>
-                    <p>AIOU Syllabus</p>
-                </div>
-                <div class="board-card-sk" id="card-general" onclick="window.location.href='library.html'">
-
-            </div>
-        </div>
-    </section>
-
-    <section class="dynamic-filter-container hidden-element" id="dynamic-filter-box">
-        <div class="container">
-            <div class="filter-inner-wrapper">
-                <div class="tabs-header-sk">
-                    <button class="tab-link-sk" id="tab-syllabus" onclick="handleTabClick('syllabus')">Text books (نصابی کتب)</button>
-                    <button class="tab-link-sk" id="tab-helping" onclick="handleTabClick('helping')">Helping books (امدادی کتب)</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="classes-render-container hidden-element" id="classes-render-zone">
-        <div class="container">
-            <div class="classes-layout-engine">
-                
-                <div class="classes-buttons-grid hidden-element" id="classes-wafaq">
-                    <button class="class-btn-sk" onclick="handleClassClick('دوره حدیث')">دوره حدیث</button>
-                    <button class="class-btn-sk" onclick="handleClassClick('موقوف علیہ')">موقوف علیہ</button>
-                    <button class="class-btn-sk" onclick="handleClassClick('عالمیہ دوم')">عالمیہ دوم</button>
-                    <button class="class-btn-sk" onclick="handleClassClick('عالیہ اول')">عالیہ اول</button>
-                    <button class="class-btn-sk" onclick="handleClassClick('خاصہ دوم')">خاصہ دوم</button>
-                    <button class="class-btn-sk" onclick="handleClassClick('خاصہ اول')">خاصہ اول</button>
-                    <button class="class-btn-sk" onclick="handleClassClick('عامہ دوم')">عامہ دوم</button>
-                    <button class="class-btn-sk" onclick="handleClassClick('عامہ اول')">عامہ اول</button>
-                    <button class="class-btn-sk" onclick="handleClassClick('اولیٰ')">اولیٰ</button>
-                    <button class="class-btn-sk" onclick="handleClassClick('تجوید')">تجوید</button>
-                    <button class="class-btn-sk" onclick="handleClassClick('دواسات اول')">دواسات اول</button>
-                    <button class="class-btn-sk" onclick="handleClassClick('دواسات دوم')">دواسات دوم</button>
-                </div>
-
-                <div class="classes-buttons-grid hidden-element" id="classes-punjab">
-                    <button class="class-btn-sk" onclick="handleClassClick('9th Class')">9th Class</button>
-                    <button class="class-btn-sk" onclick="handleClassClick('10th Class')">10th Class</button>
-                    <button class="class-btn-sk" onclick="handleClassClick('11th Class')">11th Class</button>
-                    <button class="class-btn-sk" onclick="handleClassClick('12th Class')">12th Class</button>
-                </div>
-
-                <div class="classes-buttons-grid hidden-element" id="classes-aiou">
-                    <button class="class-btn-sk" onclick="handleClassClick('Matric / FA')">میٹرک / ایف اے</button>
-                    <button class="class-btn-sk" onclick="handleClassClick('BS Program')">بی ایس پروگرام</button>
-                    <button class="class-btn-sk" onclick="handleClassClick('B.Ed Program')">بی ایڈ پروگرام</button>
-                    <button class="class-btn-sk" onclick="handleClassClick('M.A Programs')">ایم اے پروگرامز</button>
-                    <button class="class-btn-sk" onclick="handleClassClick('PhD Program')">پی ایچ ڈی پروگرام</button>
-                </div>
-
-                <div class="vertical-board-badge">
-                    <span id="vertical-text-target">BOARD</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <main class="books-render-area hidden-element" id="books-render-zone">
-        <div class="container">
-            <h3 class="current-selection-heading text-center" id="selection-title">کتب</h3>
-            <div class="books-master-grid" id="books-output-grid"></div>
-        </div>
-    </main>
-
-    <a href="https://wa.me/923000000000" class="whatsapp-sticky-btn" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-
-    <footer>
-        <div class="container text-center">
-            <p>&copy; 2026 Adilwaria Digital Academy. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        let currentBoard = '';
-        let currentTab = '';
-        let currentClass = '';
-
-        function handleBoardClick(boardId) {
-            currentBoard = boardId;
-            currentTab = ''; 
-            currentClass = ''; 
-            
-            // سب کچھ صاف کریں
-            document.getElementById('dynamic-filter-box').classList.add('hidden-element');
-            document.getElementById('classes-render-zone').classList.add('hidden-element');
-            document.getElementById('books-render-zone').classList.add('hidden-element');
-            document.querySelectorAll('.board-card-sk').forEach(c => c.classList.remove('active'));
-            document.getElementById(`card-${boardId}`).classList.add('active');
-
-            const filterBox = document.getElementById('dynamic-filter-box');
-            const classesZone = document.getElementById('classes-render-zone');
-
-            // سائیڈ پٹی کا ٹیکسٹ سیٹ کریں
-            const label = document.getElementById('vertical-text-target');
-            if(boardId === 'wafaq') label.innerText = "Wafaq-ul-Madaris";
-            if(boardId === 'punjab') label.innerText = "All Boards";
-            if(boardId === 'aiou') label.innerText = "AIOU University";
-            if(boardId === 'general') label.innerText = "General Library";
-
-            // ─── یہاں سے آپ کی ریکوائرمنٹ کے مطابق جادو شروع ہوتا ہے ───
-            
-            if (boardId === 'general') {
-                // جنرل لائبریری: ڈائریکٹ تمام کتب کھل جائیں گی، بغیر کسی کیٹیگری یا کلاس کے
-                showGeneralBooks();
-            } 
-            else if (boardId === 'punjab') {
-                // پنجاب بورڈ: پہلے ڈائریکٹ کلاسیں نظر آئیں گی
-                classesZone.classList.remove('hidden-element');
-                document.querySelectorAll('.classes-buttons-grid').forEach(g => g.classList.add('hidden-element'));
-                document.getElementById('classes-punjab').classList.remove('hidden-element');
-                document.querySelectorAll('.class-btn-sk').forEach(b => b.classList.remove('active'));
-                classesZone.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            } 
-            else {
-                // وفاق اور علامہ اقبال یونیورسٹی: پہلے نصابی/امدادی بٹن کھلیں گے
-                filterBox.classList.remove('hidden-element');
-                document.querySelectorAll('.tab-link-sk').forEach(t => t.classList.remove('active'));
-                filterBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-
-        function handleTabClick(tabType) {
-            currentTab = tabType;
-            
-            if (currentBoard === 'wafaq' || currentBoard === 'aiou') {
-                currentClass = '';
-                document.getElementById('books-render-zone').classList.add('hidden-element');
-                document.querySelectorAll('.tab-link-sk').forEach(t => t.classList.remove('active'));
-                if(tabType === 'syllabus') document.getElementById('tab-syllabus').classList.add('active');
-                if(tabType === 'helping') document.getElementById('tab-helping').classList.add('active');
-                
-                const classesZone = document.getElementById('classes-render-zone');
-                classesZone.classList.remove('hidden-element');
-                document.querySelectorAll('.classes-buttons-grid').forEach(g => g.classList.add('hidden-element'));
-                document.getElementById(`classes-${currentBoard}`).classList.remove('hidden-element');
-                document.querySelectorAll('.class-btn-sk').forEach(b => b.classList.remove('active'));
-                classesZone.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            } 
-            else if (currentBoard === 'punjab') {
-                // پنجاب بورڈ میں کلاس کلک ہونے کے بعد جب نصابی/امدادی پر کلک ہو
-                document.querySelectorAll('.tab-link-sk').forEach(t => t.classList.remove('active'));
-                if(tabType === 'syllabus') document.getElementById('tab-syllabus').classList.add('active');
-                if(tabType === 'helping') document.getElementById('tab-helping').classList.add('active');
-                showBooksPlaceholder();
-            }
-        }
-
-        function handleClassClick(className) {
-            currentClass = className;
-            document.querySelectorAll('#classes-' + currentBoard + ' .class-btn-sk').forEach(b => b.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-            
-            if (currentBoard === 'punjab') {
-                // پنجاب بورڈ میں کلاس پر کلک کرنے کے بعد اب نصابی/امدادی بٹن نیچے کھلیں گے
-                const filterBox = document.getElementById('dynamic-filter-box');
-                filterBox.classList.remove('hidden-element');
-                document.querySelectorAll('.tab-link-sk').forEach(t => t.classList.remove('active'));
-                document.getElementById('books-render-zone').classList.add('hidden-element');
-                filterBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            } else {
-                // وفاق اور یونیورسٹی کے لیے ڈائریکٹ کتب شو ہوں گی
-                showBooksPlaceholder();
-            }
-        }
-
-        function showBooksPlaceholder() {
-            const zone = document.getElementById('books-render-zone');
-            const grid = document.getElementById('books-output-grid');
-            const title = document.getElementById('selection-title');
-
-            zone.classList.remove('hidden-element');
-            title.innerText = `${currentClass} ─── (${currentTab === 'syllabus' ? 'نصابی کتب' : 'امدادی کتب'})`;
-            grid.innerHTML = `<div class="no-books-msg">ان شاء اللہ، اس منتخب سلیبس کی کتب بہت جلد یہاں اپلوڈ کر دی جائیں گی۔</div>`;
-            zone.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-
-        function showGeneralBooks() {
-            const zone = document.getElementById('books-render-zone');
-            const grid = document.getElementById('books-output-grid');
-            const title = document.getElementById('selection-title');
-
-            zone.classList.remove('hidden-element');
-            title.innerText = `جنرل لائبریری کی تمام کتب (General Library)`;
-            grid.innerHTML = `<div class="no-books-msg">ان شاء اللہ، جنرل لائبریری کی تمام نایاب کتب بغیر کسی کیٹیگری کے ڈائریکٹ یہاں لسٹ میں شو ہوں گی۔ آپ اوپر سرچ بار سے بھی تلاش کر سکیں گے۔</div>`;
-            zone.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-
-        const toggleBtn = document.getElementById('theme-toggle');
-        toggleBtn.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            document.body.classList.toggle('light-mode');
-            const icon = toggleBtn.querySelector('i');
-            if (document.body.classList.contains('dark-mode')) {
-                icon.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                icon.classList.replace('fa-sun', 'fa-moon');
-            }
-        });
-    </script>
 </body>
 </html>
