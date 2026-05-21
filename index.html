@@ -3,51 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adilwaria | Open Source Knowledge Hub</title>
+    <title>Adilwaria | Digital Academy</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --primary-color: #059669; --bg-color: #f8fafc; --card-bg: #ffffff; }
-        body { background-color: var(--bg-color); font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 20px; color: #334155; }
-        
-        .header { text-align: center; margin-bottom: 30px; }
-        .search-bar { width: 100%; max-width: 500px; padding: 12px; border-radius: 25px; border: 1px solid #ddd; margin-bottom: 30px; outline: none; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; color: #333; }
+        .header { text-align: center; margin-bottom: 20px; }
+        .search-container { text-align: center; margin-bottom: 25px; }
+        .search-bar { width: 90%; max-width: 500px; padding: 12px; border-radius: 25px; border: 1px solid #ccc; outline: none; }
         
         .grid-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; max-width: 600px; margin: 0 auto; }
-        
-        .card { background: var(--card-bg); padding: 20px; border-radius: 15px; border: 1px solid #e2e8f0; text-align: center; cursor: pointer; transition: 0.3s; }
-        .card:hover { border-color: var(--primary-color); box-shadow: 0 10px 15px rgba(0,0,0,0.05); transform: translateY(-5px); }
-        .card i { font-size: 2rem; color: var(--primary-color); margin-bottom: 10px; }
-        .card h4 { margin: 5px 0; font-size: 1rem; }
-        .card p { font-size: 0.75rem; color: #64748b; margin: 0; }
+        .card { background: #fff; padding: 20px; border-radius: 15px; border: 1px solid #e0e0e0; text-align: center; cursor: pointer; transition: 0.3s; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .card:hover { border-color: #059669; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .card i { font-size: 1.8rem; color: #059669; margin-bottom: 10px; }
+        .card h4 { margin: 5px 0; font-size: 0.9rem; }
+        .card p { font-size: 0.7rem; color: #777; margin: 0; }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <h1>ADILWARIA</h1>
+    <h2>ADILWARIA</h2>
+</div>
+
+<div class="search-container">
     <input type="text" class="search-bar" placeholder="کتاب تلاش کریں...">
 </div>
 
 <div class="grid-container">
-    <div class="card" onclick="window.location.href='wafaq.html'">
-        <i class="fa-solid fa-mosque"></i>
-        <h4>وفاق المدارس</h4>
-        <p>Wafaq-ul-Madaris</p>
-    </div>
     <div class="card" onclick="window.location.href='boards.html'">
         <i class="fa-solid fa-graduation-cap"></i>
         <h4>تمام بورڈز</h4>
         <p>All Boards</p>
     </div>
+    <div class="card" onclick="window.location.href='wafaq.html'">
+        <i class="fa-solid fa-mosque"></i>
+        <h4>وفاق المدارس</h4>
+        <p>Wafaq-ul-Madaris</p>
+    </div>
+    <div class="card" onclick="window.location.href='library.html'">
+        <i class="fa-solid fa-book-open"></i>
+        <h4>جنرل لائبریری</h4>
+        <p>General Library</p>
+    </div>
     <div class="card" onclick="window.location.href='aiou.html'">
         <i class="fa-solid fa-building-columns"></i>
         <h4>اوپن یونیورسٹی</h4>
         <p>AIOU Syllabus</p>
-    </div>
-    <div class="card" id="card-general" onclick="window.location.href='library.html'">
-        <i class="fa-solid fa-book-open"></i>
-        <h4>جنرل لائبریری</h4>
-        <p>General Library</p>
     </div>
 </div>
 
