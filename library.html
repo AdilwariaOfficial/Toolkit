@@ -1,1 +1,292 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Digital Library | Adilwaria Digital Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-mode">
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">ADIL<span class="highlight">WARIA</span></a>
+            <div class="nav-right-element">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="library.html" class="active">Library</a></li>
+                    <li><a href="tools.html">Tools</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+                <button id="theme-toggle" class="theme-switch-btn">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="library-hero">
+        <div class="container text-center">
+            <span class="badge">Open Source Knowledge Hub</span>
+            <h1 class="brand-title">DIGITAL <span class="gradient-text">LIBRARY</span></h1>
+            <p class="section-subtitle">ایک کلک پر تمام نصابی، امدادی اور عام دینی کتب مفت ڈاؤن لوڈ کریں</p>
+            
+            <div class="search-box-container">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="library-search" placeholder="کتاب کا نام یا کی ورڈ تلاش کریں... Search books...">
+            </div>
+        </div>
+    </section>
+
+    <section class="boards-section">
+        <div class="container">
+            <div class="boards-grid">
+                <div class="glass-card board-card active" onclick="switchBoard('wafaq')">
+                    <i class="fa-solid fa-mosque"></i>
+                    <h3>وفاق المدارس</h3>
+                    <p>Wafaq-ul-Madaris</p>
+                </div>
+                <div class="glass-card board-card" onclick="switchBoard('punjab')">
+                    <i class="fa-solid fa-school"></i>
+                    <h3>پنجاب بورڈ</h3>
+                    <p>Punjab Board (9th-12th)</p>
+                </div>
+                <div class="glass-card board-card" onclick="switchBoard('aiou')">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <h3>اوپن یونیورسٹی</h3>
+                    <p>AIOU Syllabus</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="class-filter-section">
+        <div class="container text-center">
+            <div id="classes-wafaq" class="class-buttons-group">
+                <button class="class-btn active" onclick="filterClass('ثانویہ عامہ')">ثانویہ عامہ</button>
+                <button class="class-btn" onclick="filterClass('ثانویہ خاصہ')">ثانویہ خاصہ</button>
+                <button class="class-btn" onclick="filterClass('عالیہ')">عالیہ / عالمیہ</button>
+            </div>
+            <div id="classes-punjab" class="class-buttons-group d-none">
+                <button class="class-btn" onclick="filterClass('9th Class')">9th Class</button>
+                <button class="class-btn" onclick="filterClass('10th Class')">10th Class</button>
+                <button class="class-btn" onclick="filterClass('11th/12th')">Inter (11th/12th)</button>
+            </div>
+            <div id="classes-aiou" class="class-buttons-group d-none">
+                <button class="class-btn" onclick="filterClass('AIOU Matric')">AIOU میٹرک / ایف اے</button>
+                <button class="class-btn" onclick="filterClass('AIOU BS')">AIOU بی ایس / ایم اے</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="tabs-navigation">
+        <div class="container">
+            <div class="tabs-header">
+                <button class="tab-link active" onclick="switchTab('syllabus')"><i class="fa-solid fa-book"></i> Textbook (نصابی کتب)</button>
+                <button class="tab-link" onclick="switchTab('helping')"><i class="fa-solid fa-hands-holding-child"></i> Helping Material (امدادی کتب)</button>
+            </div>
+        </div>
+    </section>
+
+    <main class="books-display-area">
+        <div class="container">
+            <div id="books-grid" class="books-master-grid">
+                </div>
+        </div>
+    </main>
+
+    <section class="general-library-section">
+        <div class="container">
+            <div class="general-heading-box text-center">
+                <h2><i class="fa-solid fa-book-journal-whills"></i> General & Islamic Library | متفرق لائبریری</h2>
+                <p>اخلاقیات، سیرتِ طیبہ اور اصلاحِ معاشرہ پر مشتمل عمومی کتب</p>
+            </div>
+            <div id="general-books-grid" class="books-master-grid">
+                </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/923000000000" class="whatsapp-sticky-btn" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2026 Adilwaria Digital Academy. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 1. کتابوں کا ڈیٹا بیس (یہاں آپ فیوچر میں ہزاروں کتابیں آرام سے ایڈ کر سکتے ہیں)
+        const booksDatabase = [
+            // === وفاق المدارس کتب ===
+            { title: "صحیح البخاری جلد اول", board: "wafaq", className: "عالیہ", type: "syllabus", link: "https://drive.google.com/file/d/YOUR_LINK_HERE" },
+            { title: "القرآن الکریم مع التفسیر", board: "wafaq", className: "ثانویہ عامہ", type: "syllabus", link: "#" },
+            { title: "خلاصہ نحومیر (امدادی)", board: "wafaq", className: "ثانویہ عامہ", type: "helping", link: "#" },
+            { title: "شرح جامی نوٹس (شارٹ کٹ)", board: "wafaq", className: "ثانویہ خاصہ", type: "helping", link: "#" },
+
+            // === پنجاب بورڈ کتب ===
+            { title: "Matric Physics Textbook", board: "punjab", className: "10th Class", type: "syllabus", link: "#" },
+            { title: "9th Class English Book", board: "punjab", className: "9th Class", type: "syllabus", link: "#" },
+            { title: "10th Math Key Book (خلاصہ)", board: "punjab", className: "10th Class", type: "helping", link: "#" },
+            { title: "9th Chemistry Past Papers", board: "punjab", className: "9th Class", type: "helping", link: "#" },
+
+            // === علامہ اقبال اوپن یونیورسٹی کتب ===
+            { title: "AIOU Islamiyat 416", board: "aiou", className: "AIOU Matric", type: "syllabus", link: "#" },
+            { title: "AIOU Research Methodology", board: "aiou", className: "AIOU BS", type: "syllabus", link: "#" },
+            { title: "AIOU Compulsory English Guide", board: "aiou", className: "AIOU Matric", type: "helping", link: "#" }
+        ];
+
+        // 2. جنرل لائبریری کا ڈیٹا بیس (متفرق کتب)
+        const generalBooks = [
+            { title: "سیرتِ سرورِ کائنات ﷺ", author: "اسلامک کتب", link: "#" },
+            { title: "تعمیرِ اخلاق اور نوجوان", author: "تربیتی کتب", link: "#" },
+            { title: "آرٹیفیشل انٹیلیجنس اور ہمارا مستقبل", author: "ٹیکنالوجی کتب", link: "#" },
+            { title: "اسمارٹ ٹرکس فار اسٹوڈنٹس", author: "تعلیمی کتب", link: "#" }
+        ];
+
+        // موجودہ اسٹیٹ (Current State)
+        let currentBoard = 'wafaq';
+        let currentClass = 'ثانویہ عامہ';
+        let currentTab = 'syllabus';
+
+        // پیج لوڈ ہوتے ہی سب سے پہلے کتابیں رینڈر کریں
+        window.onload = function() {
+            renderBooks();
+            renderGeneralBooks();
+        };
+
+        // بورڈ سوئچ کرنے کا فنکشن
+        function switchBoard(boardId) {
+            currentBoard = boardId;
+            
+            // ایکٹو کلاس کارڈ تبدیل کریں
+            document.querySelectorAll('.board-card').forEach(c => c.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            // تمام کلاس گروپس چھپائیں اور مطلوبہ دکھائیں
+            document.querySelectorAll('.class-buttons-group').forEach(g => g.classList.add('d-none'));
+            const targetGroup = document.getElementById(`classes-${boardId}`);
+            targetGroup.classList.remove('d-none');
+
+            // نئے بورڈ کی پہلی کلاس کو ایکٹو سیٹ کریں
+            const firstBtn = targetGroup.querySelector('.class-btn');
+            targetGroup.querySelectorAll('.class-btn').forEach(b => b.classList.remove('active'));
+            firstBtn.classList.add('active');
+            
+            // کلاس کا نام نکالنے کا دیسی طریقہ
+            currentClass = firstBtn.innerText;
+
+            renderBooks();
+        }
+
+        // کلاس فلٹر کرنے کا فنکشن
+        function filterClass(className) {
+            currentClass = className;
+            document.querySelectorAll('.class-buttons-group:not(.d-none) .class-btn').forEach(b => b.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            renderBooks();
+        }
+
+        // ٹیب سوئچ (نصابی بمقابلہ امدادی)
+        function switchTab(tabId) {
+            currentTab = tabId;
+            document.querySelectorAll('.tab-link').forEach(t => t.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            renderBooks();
+        }
+
+        // مین لائبریری کتب رینڈر کرنے کا انجن
+        function renderBooks() {
+            const grid = document.getElementById('books-grid');
+            grid.innerHTML = '';
+
+            const filtered = booksDatabase.filter(book => 
+                book.board === currentBoard && 
+                book.className === currentClass && 
+                book.type === currentTab
+            );
+
+            if(filtered.length === 0) {
+                grid.innerHTML = `<div class="no-books-msg">اس کیٹیگری میں ابھی کتب اپلوڈ ہو رہی ہیں، جلد دستیاب ہوں گی ان شاء اللہ۔</div>`;
+                return;
+            }
+
+            filtered.forEach(book => {
+                grid.innerHTML += `
+                    <div class="glass-card book-card-item">
+                        <div class="book-icon-wrapper"><i class="fa-solid fa-book-bookmark"></i></div>
+                        <h4>${book.title}</h4>
+                        <p class="book-tag-info">${book.className} | ${book.type === 'syllabus' ? 'نصابی' : 'امدادی'}</p>
+                        <a href="${book.link}" class="download-book-btn" target="_blank"><i class="fa-solid fa-cloud-arrow-down"></i> Download PDF</a>
+                    </div>
+                `;
+            });
+        }
+
+        // جنرل کتب رینڈر کرنے کا انجن
+        function renderGeneralBooks() {
+            const genGrid = document.getElementById('general-books-grid');
+            generalBooks.forEach(book => {
+                genGrid.innerHTML += `
+                    <div class="glass-card book-card-item general-item">
+                        <div class="book-icon-wrapper geo-color"><i class="fa-solid fa-leaf"></i></div>
+                        <h4>${book.title}</h4>
+                        <p class="book-tag-info">${book.author}</p>
+                        <a href="${book.link}" class="download-book-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> Read Online</a>
+                    </div>
+                `;
+            });
+        }
+
+        // اسمارٹ لائیو سرچ فنکشن
+        document.getElementById('library-search').addEventListener('input', function(e) {
+            const keyword = e.target.value.toLowerCase().trim();
+            const grid = document.getElementById('books-grid');
+            
+            if(keyword === '') {
+                renderBooks(); // اگر سرچ بار خالی ہے تو نارمل ڈسپلے پر جائیں
+                return;
+            }
+
+            // پورے ڈیٹا بیس میں سرچ کریں
+            const matches = booksDatabase.filter(book => book.title.toLowerCase().includes(keyword));
+            grid.innerHTML = '';
+
+            if(matches.length === 0) {
+                grid.innerHTML = `<div class="no-books-msg">معذرت، اس نام کی کوئی کتاب نہیں ملی!</div>`;
+                return;
+            }
+
+            matches.forEach(book => {
+                grid.innerHTML += `
+                    <div class="glass-card book-card-item">
+                        <div class="book-icon-wrapper"><i class="fa-solid fa-book-bookmark"></i></div>
+                        <h4>${book.title}</h4>
+                        <p class="book-tag-info">${book.board.toUpperCase()} | ${book.className}</p>
+                        <a href="${book.link}" class="download-book-btn" target="_blank"><i class="fa-solid fa-cloud-arrow-down"></i> Download</a>
+                    </div>
+                `;
+            });
+        }._);
+
+        // ─── لائٹ/ڈارک موڈ ہینڈلر ───
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const bodyElement = document.body;
+        const iconElement = themeToggleBtn.querySelector('i');
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (bodyElement.classList.contains('light-mode')) {
+                bodyElement.classList.remove('light-mode');
+                bodyElement.classList.add('dark-mode');
+                iconElement.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                bodyElement.classList.remove('dark-mode');
+                bodyElement.classList.add('light-mode');
+                iconElement.classList.replace('fa-sun', 'fa-moon');
+            }
+        });
+    </script>
+</body>
+</html>
