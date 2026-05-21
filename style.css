@@ -1,3 +1,4 @@
+/* الٹرا پریمیم گوگل فونٹ */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 * {
@@ -8,33 +9,36 @@
     scroll-behavior: smooth;
 }
 
-html, body {
-    width: 100%;
-    max-width: 100%;
-    background-color: #030708;
-    color: #f8fafc;
-    line-height: 1.6;
-    overflow-x: hidden; /* موبائل اسکرین کو دائیں بائیں ہلنے سے بالکل لاک کر دیا */
-    position: relative;
+/* 🎨 تھیم ویری ایبلز (رنگوں کا لاک سسٹم) */
+body.light-mode {
+    --bg-color: #f8fafc;
+    --text-color: #0f172a;
+    --navbar-bg: rgba(248, 250, 252, 0.85);
+    --navbar-border: rgba(15, 23, 42, 0.06);
+    --card-bg: rgba(255, 255, 255, 0.7);
+    --card-border: rgba(15, 23, 42, 0.05);
+    --text-muted: #475569;
+    --primary-glow: #10b981;
 }
 
-.bg-glow-1 {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
-    top: -50px;
-    right: -50px;
-    z-index: -1;
+body.dark-mode {
+    --bg-color: #030708;
+    --text-color: #f8fafc;
+    --navbar-bg: rgba(3, 7, 8, 0.85);
+    --navbar-border: rgba(255, 255, 255, 0.05);
+    --card-bg: rgba(13, 20, 23, 0.6);
+    --card-border: rgba(255, 255, 255, 0.05);
+    --text-muted: #94a3b8;
+    --primary-glow: #10b981;
 }
-.bg-glow-2 {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(234, 179, 8, 0.04) 0%, transparent 70%);
-    top: 60vh;
-    left: -100px;
-    z-index: -1;
+
+/* مین باڈی سٹائل */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.4s ease, color 0.4s ease;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 .container {
@@ -44,158 +48,256 @@ html, body {
     padding: 0 20px;
 }
 
+/* ─── پریمیم مینو بار (Navbar) ─── */
+.navbar {
+    background: var(--navbar-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--navbar-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+    transition: background 0.4s ease, border-bottom 0.4s ease;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--text-color);
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.4s ease;
+}
+
 .highlight {
     color: #10b981;
-    text-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+    text-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
 }
-.text-gradient {
+
+.nav-right-element {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 22px;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #10b981;
+}
+
+/* ڈارک موڈ کا جادوئی سوئچ بٹن */
+.theme-switch-btn {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, color 0.4s;
+}
+
+.theme-switch-btn:hover {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+/* ─── برانڈ ہیرو سیکشن (بیک گراؤنڈ امیج) ─── */
+.hero-section {
+    position: relative;
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* یہ اوپن سورس ہائی کوالٹی امیج علم اور فیوچر ٹیکنالوجی کو ظاہر کرتی ہے */
+    background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 60px 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* ڈارک اور لائٹ موڈ کے لحاظ سے اوورلے ایڈجسٹ ہوگا تاکہ ٹیکسٹ واضح پڑھے جا سکیں */
+    background: linear-gradient(to bottom, rgba(3, 7, 8, 0.7) 0%, rgba(3, 7, 8, 0.85) 100%);
+    z-index: 1;
+}
+
+body.light-mode .hero-overlay {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%, rgba(248, 250, 252, 0.95) 100%);
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+}
+
+.brand-badge {
+    display: inline-block;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    color: #10b981;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.brand-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.gradient-text {
     background: linear-gradient(135deg, #10b981 0%, #eab308 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.badge {
-    display: inline-block;
-    background: rgba(16, 185, 129, 0.1);
-    border: 1px solid rgba(16, 185, 129, 0.2);
-    color: #10b981;
-    padding: 6px 16px;
-    border-radius: 30px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    margin-bottom: 20px;
+.brand-tagline {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 35px;
 }
 
-.glass-card {
-    background: rgba(13, 20, 23, 0.6);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 24px;
-}
-
-/* ہیرو سیکشن */
-.hero {
-    min-height: 90vh;
+/* ایکشن بٹنز */
+.hero-action-btns {
     display: flex;
-    align-items: center;
-    padding: 40px 0;
+    gap: 15px;
+    justify-content: center;
 }
-.hero-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-    flex-wrap: wrap-reverse;
-}
-.hero-text { flex: 1.2; min-width: 280px; }
-.hero-text h1 { font-size: 3rem; font-weight: 800; line-height: 1.2; margin-bottom: 15px; }
-.hero-text h2 { font-size: 1.6rem; font-weight: 700; color: #94a3b8; margin-bottom: 20px; }
-.hero-text p { color: #94a3b8; font-size: 1rem; margin-bottom: 30px; }
 
-.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-.btn {
-    padding: 12px 28px;
+.main-btn {
+    padding: 14px 32px;
     border-radius: 12px;
     text-decoration: none;
     font-weight: 700;
-    transition: all 0.3s ease;
     font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.btn-primary {
+
+.btn-primary-lux {
     background-color: #10b981;
     color: #030708;
     box-shadow: 0 6px 20px rgba(16, 185, 129, 0.25);
 }
-.btn-primary:hover { transform: translateY(-2px); }
-.btn-secondary {
-    background: rgba(255, 255, 255, 0.03);
-    color: #f8fafc;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.btn-secondary:hover { background: rgba(255, 255, 255, 0.08); transform: translateY(-2px); }
 
-.hero-image { flex: 0.8; display: flex; justify-content: center; min-width: 260px; }
-.img-frame {
-    position: relative;
-    padding: 8px;
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.3) 0%, rgba(234, 179, 8, 0.1) 100%);
-    border-radius: 50%;
-}
-.profile-img {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #030708;
+.btn-primary-lux:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.35);
 }
 
-/* سیکشنز ٹائٹل */
-.section-title {
-    text-align: center;
-    font-size: 2.2rem;
-    font-weight: 800;
-    margin-bottom: 35px;
-    background: linear-gradient(to right, #ffffff, #94a3b8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.btn-secondary-lux {
+    background: rgba(16, 185, 129, 0.05);
+    color: var(--text-color);
+    border: 1px solid rgba(16, 185, 129, 0.25);
 }
 
-/* اباؤٹ سیکشن */
-.about-section { padding: 60px 0; }
-.about-card { padding: 30px; max-width: 850px; margin: 0 auto; }
-.about-p { text-align: center; font-size: 1.15rem; color: #e2e8f0; direction: rtl; line-height: 1.8; }
-
-/* سروسز گرڈ */
-.services-section { padding: 60px 0; }
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-.service-card { padding: 30px 24px; transition: transform 0.3s ease; }
-.service-card:hover { transform: translateY(-5px); }
-.icon-box {
-    width: 50px;
-    height: 50px;
+.btn-secondary-lux:hover {
     background: rgba(16, 185, 129, 0.1);
-    border-radius: 12px;
+    transform: translateY(-2px);
+}
+
+/* ─── اکیڈمی مشن سیکشن (گلاسمورفزم) ─── */
+.academy-mission {
+    padding: 60px 0;
+}
+
+.glass-info-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 45px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    transition: background 0.4s ease, border 0.4s ease;
+}
+
+.glass-info-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #10b981;
+}
+
+.urdu-mission-text {
+    direction: rtl;
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--text-color);
+    text-align: justify;
+    margin-bottom: 35px;
+}
+
+.features-mini-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--navbar-border);
+    padding-top: 25px;
+}
+
+.mini-feature {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.mini-feature i {
     color: #10b981;
-    margin-bottom: 20px;
-}
-.service-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; }
-.service-card p { color: #94a3b8; font-size: 0.9rem; }
-
-/* گیلری گرڈ (تصویروں کا سائز موبائل پر بالکل پرفیکٹ فٹ رہے گا) */
-.gallery-section { padding: 60px 0; }
-.gallery-subtitle { text-align: center; color: #64748b; margin-top: -25px; margin-bottom: 40px; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; }
-.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
-.gallery-item {
-    height: 180px;
-    border-radius: 16px;
-    overflow: hidden;
-    cursor: pointer;
-    border: 1px solid rgba(255, 255, 255, 0.04);
-}
-.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-.gallery-item:hover img { transform: scale(1.08); }
-
-/* کانٹیکٹ کارڈ */
-.contact-section { padding: 60px 0; }
-.contact-card { max-width: 750px; margin: 0 auto; padding: 45px 24px; text-align: center; }
-.contact-card p { color: #94a3b8; font-size: 1.1rem; margin-bottom: 25px; }
-.contact-btn-premium {
-    display: inline-block;
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    color: #030708;
-    padding: 14px 35px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 800;
 }
 
-/* واٹس ایپ فلوٹنگ بٹن - جو اب موبائل اسکرین پر ہمیشہ اوپر پکا چمکے گا */
-.whatsapp-float {
+/* ─── فکسڈ واٹس ایپ چالو بٹن ─── */
+.whatsapp-sticky-btn {
     position: fixed;
     width: 55px;
     height: 55px;
@@ -209,50 +311,83 @@ html, body {
     justify-content: center;
     font-size: 28px;
     box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-    z-index: 9999; /* سب سے اوپر رہے گا */
+    z-index: 9999;
     text-decoration: none;
-    transition: transform 0.2s ease;
-}
-.whatsapp-float:active { transform: scale(0.9); }
-
-/* تصویر بڑی کر کے دیکھنے والا لک (Lightbox Design) */
-.lightbox {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(3, 7, 8, 0.95);
-    backdrop-filter: blur(10px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10000;
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.3s ease;
-}
-.lightbox.active { opacity: 1; pointer-events: auto; }
-.lightbox-img {
-    max-width: 90%; max-height: 80%;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    border: 1px solid rgba(255,255,255,0.1);
-}
-.close-lightbox {
-    position: absolute;
-    top: 20px; right: 25px;
-    color: #f8fafc; font-size: 40px; font-weight: bold;
-    cursor: pointer;
+    transition: transform 0.2s;
 }
 
-footer { text-align: center; padding: 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); color: #475569; font-size: 0.85rem; }
+.whatsapp-sticky-btn:hover {
+    transform: scale(1.05);
+}
 
-/* خالص موبائل آٹو ایڈجسٹمنٹ میڈیا کیوری */
+/* ─── کلاسک فوٹر ─── */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid var(--navbar-border);
+    color: #64748b;
+    font-size: 0.85rem;
+    margin-top: 20px;
+}
+
+/* ─── موبائل کے لیے الٹرا ریسپونسیو سیٹنگز ─── */
 @media (max-width: 768px) {
-    .hero-text h1 { font-size: 2.2rem; text-align: center; }
-    .hero-text h2 { font-size: 1.3rem; text-align: center; }
-    .hero-text p { text-align: center; font-size: 0.95rem; }
-    .hero-btns { justify-content: center; }
-    .hero-image { order: -1; margin-bottom: 10px; }
-    .profile-img { width: 200px; height: 200px; }
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .gallery-item { height: 120px; border-radius: 12px; }
-    .about-p { font-size: 1rem; }
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav-right-element {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .nav-links {
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+
+    .brand-title {
+        font-size: 2.3rem;
+    }
+
+    .brand-tagline {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    .hero-action-btns {
+        flex-direction: column;
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+        gap: 10px;
+    }
+
+    .main-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 20px;
+    }
+
+    .glass-info-card {
+        padding: 25px 20px;
+    }
+
+    .urdu-mission-text {
+        font-size: 1.05rem;
+        text-align: center;
+    }
+
+    .features-mini-grid {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding-left: 10px;
+    }
 }
