@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ur" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,61 +8,59 @@
         :root { --primary-green: #0a3d2e; --accent-gold: #c5a059; }
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f4f4; }
 
-        /* ہیڈر */
         header { background: var(--primary-green); color: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--accent-gold); }
+        .logo { font-weight: bold; font-size: 22px; color: white; text-decoration: none; }
         
-        /* سیکشنز */
         .section { padding: 20px 5%; }
         .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        
-        /* افقی قطار (کتابوں/ایپس کے لیے) */
-        .scroll-container { display: flex; overflow-x: auto; gap: 15px; padding-bottom: 10px; scroll-behavior: smooth; }
-        .scroll-container::-webkit-scrollbar { display: none; }
-        
-        /* کارڈ کا سائز بالکل آپ کی تصویر کے مطابق */
-        .card { min-width: 130px; max-width: 130px; background: white; padding: 10px; border-radius: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border: 1px solid #ddd; }
-        .card img { width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-bottom: 5px; }
-        .card h4 { font-size: 14px; margin: 5px 0; }
-        
-        /* بٹن سٹائل */
-        .btn { width: 100%; padding: 8px 0; border: none; border-radius: 5px; cursor: pointer; font-size: 12px; font-weight: bold; }
-        .btn-open { background: var(--accent-gold); color: white; }
-        .btn-down { background: var(--primary-green); color: white; }
+        h2 { margin: 0; font-size: 18px; }
 
-        /* سی آل بٹن */
-        .see-all-container { min-width: 80px; display: flex; align-items: center; justify-content: center; }
-        .see-all-btn { background: var(--primary-green); color: white; padding: 10px; border-radius: 50%; text-decoration: none; font-size: 20px; }
+        .scroll-container { display: flex; overflow-x: auto; gap: 15px; padding-bottom: 10px; }
+        .scroll-container::-webkit-scrollbar { display: none; }
+
+        /* کارڈ کا سائز ناموں کے لیے تھوڑا مزید بڑھایا گیا ہے */
+        .card { min-width: 150px; background: white; padding: 12px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e0e0e0; }
+        .card img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; margin-bottom: 8px; }
+        .card h4 { margin: 5px 0; font-size: 13px; min-height: 35px; }
+
+        .btn-group { display: flex; gap: 5px; margin-top: 8px; }
+        .btn { flex: 1; padding: 6px 0; border: none; border-radius: 5px; cursor: pointer; font-size: 11px; font-weight: bold; text-decoration: none; text-align: center; }
+        .btn-gold { background: var(--accent-gold); color: white; }
+        .btn-green { background: var(--primary-green); color: white; }
+
+        .see-all { display: flex; align-items: center; justify-content: center; min-width: 60px; background: var(--primary-green); color: white; border-radius: 12px; text-decoration: none; font-size: 24px; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo" style="font-weight:bold;">ADIL WARIA®</div>
-    <div>☰ MENU</div>
+    <a href="#" class="logo">ADIL WARIA®</a>
+    <div style="font-weight:bold; cursor:pointer;">MENU ☰</div>
 </header>
 
 <section class="section">
-    <div class="section-header"><h2>لائبریری / Library</h2></div>
+    <div class="section-header"><h2>Library / لائبریری</h2></div>
     <div class="scroll-container">
-        <div class="card"><img src="https://via.placeholder.com/130x150" alt="Book"><h4>جنرل</h4><button class="btn btn-open">اوپن</button></div>
-        <div class="card"><img src="https://via.placeholder.com/130x150" alt="Book"><h4>وفاق</h4><button class="btn btn-open">اوپن</button></div>
-        <div class="card"><img src="https://via.placeholder.com/130x150" alt="Book"><h4>بورڈز</h4><button class="btn btn-open">اوپن</button></div>
-        <div class="card"><img src="https://via.placeholder.com/130x150" alt="Book"><h4>یونیورسٹی</h4><button class="btn btn-open">اوپن</button></div>
-        <div class="see-all-container"><a href="#" class="see-all-btn">→</a></div>
+        <div class="card"><h4>General Library</h4><a href="#" class="btn btn-gold">Open</a></div>
+        <div class="card"><h4>وفاق المدارس</h4><a href="#" class="btn btn-gold">Open</a></div>
+        <div class="card"><h4>آل بورڈز</h4><a href="#" class="btn btn-gold">Open</a></div>
+        <div class="card"><h4>علامہ اقبال اوپن یونیورسٹی</h4><a href="#" class="btn btn-gold">Open</a></div>
+        <a href="#" class="see-all">→</a>
     </div>
 </section>
 
 <section class="section">
-    <h3>پریمیم ایپس / Premium Apps</h3>
+    <div class="section-header"><h2>Digital Tools / ڈیجیٹل ٹولز</h2></div>
+    <p style="margin-top:-15px; font-size: 11px; color: #666;">Premium Apps</p>
     <div class="scroll-container">
-        <div class="card"><img src="https://via.placeholder.com/130x150" alt="App"><h4>CapCut</h4><button class="btn btn-down">ڈاؤن لوڈ</button></div>
-        <div class="card"><img src="https://via.placeholder.com/130x150" alt="App"><h4>Remini</h4><button class="btn btn-down">ڈاؤن لوڈ</button></div>
-        <div class="see-all-container"><a href="#" class="see-all-btn">→</a></div>
+        <div class="card"><h4>CapCut Pro</h4><a href="#" class="btn btn-green">Visit</a></div>
+        <div class="card"><h4>Remini Pro</h4><a href="#" class="btn btn-green">Visit</a></div>
+        <a href="#" class="see-all">→</a>
     </div>
 </section>
 
 <section class="section">
-    <h3>پریمیم کورسز / Premium Courses</h3>
+    <div class="section-header"><h2>Courses / کورسز</h2></div>
     <div class="scroll-container" id="videoGrid"></div>
 </section>
 
@@ -73,14 +71,14 @@
         grid.innerHTML += `
             <div class="card">
                 <img src="https://img.youtube.com/vi/${id}/mqdefault.jpg">
-                <h4>نعت شریف</h4>
-                <div style="display:flex; gap:5px;">
-                    <button class="btn btn-open" style="font-size:10px;">واچ</button>
-                    <button class="btn btn-down" style="font-size:10px;">⬇</button>
+                <h4>Naat Sharif 2025</h4>
+                <div class="btn-group">
+                    <a href="#" class="btn btn-gold">WATCH</a>
+                    <a href="#" class="btn btn-green">⬇</a>
                 </div>
             </div>`;
     });
-    grid.innerHTML += `<div class="see-all-container"><a href="#" class="see-all-btn">→</a></div>`;
+    grid.innerHTML += `<a href="#" class="see-all">→</a>`;
 </script>
 
 </body>
