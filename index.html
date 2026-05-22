@@ -15,17 +15,22 @@
         
         .header-content { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-weight: bold; font-size: 18px; display: flex; align-items: center; gap: 8px; }
-        .nav-links { display: flex; gap: 10px; }
-        .nav-links a { text-decoration: none; color: white; font-size: 12px; font-weight: bold; text-transform: uppercase; }
+        .nav-links a { text-decoration: none; color: white; font-size: 12px; font-weight: bold; text-transform: uppercase; margin-left: 10px; }
 
         .hero { background: var(--primary-green); color: white; padding: 40px 5%; text-align: center; }
+        .section-header { padding: 15px 5% 5px 5%; font-size: 18px; font-weight: bold; }
         
-        .grid-4 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 20px 5%; }
+        .grid-4 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 0 5% 20px 5%; }
         .card { background: var(--card-light); padding: 15px; border-radius: 8px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); color: #333; }
         body.dark-mode .card { background: var(--card-dark); color: white; }
         
-        button { cursor: pointer; padding: 8px 12px; border: none; border-radius: 5px; background: var(--accent-gold); color: white; font-weight: bold; width: 100%; margin-top: 5px; }
-        .cat-btn { background: var(--primary-green); margin-top: 5px; }
+        .scroll-row { display: flex; overflow-x: auto; gap: 15px; padding: 10px 5% 20px 5%; }
+        .scroll-item { min-width: 150px; background: var(--card-light); padding: 10px; border-radius: 8px; text-align: center; color: #333; }
+        body.dark-mode .scroll-item { background: var(--card-dark); color: white; }
+        
+        button { cursor: pointer; padding: 8px 10px; border: none; border-radius: 5px; background: var(--accent-gold); color: white; font-weight: bold; width: 100%; margin-top: 5px; }
+        .cat-btn { background: var(--primary-green); }
+        .thumb { width: 100%; height: 100px; background: #ddd; border-radius: 5px; margin-bottom: 8px; }
     </style>
 </head>
 <body>
@@ -33,85 +38,64 @@
 <header>
     <div class="header-content">
         <div class="logo">🏠 ADIL WARIA</div>
-        <div class="nav-links">
-            <a href="#">HOME</a><a href="#">ABOUT</a><a href="#">CONTACT</a><a href="#">UPLOAD</a>
-        </div>
+        <div class="nav-links"><a href="#">HOME</a><a href="#">ABOUT</a><a href="#">CONTACT</a><a href="#">UPLOAD</a></div>
     </div>
 </header>
 
-<section class="hero">
-    <h1>ADIL WARIA</h1>
-    <p>Open Source Educational Hub</p>
-</section>
+<section class="hero"><h1>ADIL WARIA</h1><p>Open Source Educational Hub</p></section>
 
-<section class="grid-4">
-    <div class="card">
-        <h4>Wifaq-ul-Madaris</h4>
-        <button onclick="toggleDisplay('wifaq-menu')">Open</button>
+<section class="grid-4" style="margin-top:20px;">
+    <div class="card"><h4>Wifaq-ul-Madaris</h4><button onclick="toggleDisplay('wifaq-menu')">Open</button>
         <div id="wifaq-menu" style="display:none; margin-top:10px;">
             <select style="width:100%; padding:5px;" onchange="showSubButtons(this.value, 'wifaq')">
                 <option value="">درجہ منتخب کریں</option>
-                <option value="تجوید">تجوید</option><option value="ابتدائیہ">ابتدائیہ</option>
-                <option value="اولیٰ">اولیٰ</option><option value="ثانیہ">ثانیہ</option>
-                <option value="ثالثہ">ثالثہ</option><option value="رابعہ">رابعہ</option>
-                <option value="خامسہ">خامسہ</option><option value="سادسہ">سادسہ</option>
-                <option value="سابعہ">سابعہ</option><option value="عالمیہ">عالمیہ</option>
-                <option value="تخصص">تخصص</option>
+                <option value="تجوید">تجوید</option><option value="ابتدائیہ">ابتدائیہ</option><option value="اولیٰ">اولیٰ</option>
             </select>
-            <div id="wifaq-btns" style="display:none;">
-                <button class="cat-btn" onclick="location.href='books.html'">نصابی کتب</button>
-                <button class="cat-btn" onclick="location.href='books.html'">امدادی کتب</button>
-            </div>
+            <div id="wifaq-btns" style="display:none;"><button class="cat-btn" onclick="location.href='books.html'">نصابی کتب</button><button class="cat-btn" onclick="location.href='books.html'">امدادی کتب</button></div>
         </div>
     </div>
 
-    <div class="card">
-        <h4>All Boards</h4>
-        <button onclick="toggleDisplay('board-menu')">Open</button>
+    <div class="card"><h4>All Boards</h4><button onclick="toggleDisplay('board-menu')">Open</button>
         <div id="board-menu" style="display:none; margin-top:10px;">
             <select style="width:100%; padding:5px;" onchange="showSubButtons(this.value, 'board')">
                 <option value="">کلاس منتخب کریں</option>
                 <option value="9th">9th</option><option value="10th">10th</option>
-                <option value="11th">11th</option><option value="12th">12th</option>
             </select>
-            <div id="board-btns" style="display:none;">
-                <button class="cat-btn" onclick="location.href='books.html'">نصابی کتب</button>
-                <button class="cat-btn" onclick="location.href='books.html'">امدادی کتب</button>
-            </div>
+            <div id="board-btns" style="display:none;"><button class="cat-btn" onclick="location.href='books.html'">نصابی کتب</button><button class="cat-btn" onclick="location.href='books.html'">امدادی کتب</button></div>
         </div>
     </div>
 
-    <div class="card">
-        <h4>AIOU</h4>
-        <button onclick="toggleDisplay('aiou-menu')">Open</button>
+    <div class="card"><h4>AIOU</h4><button onclick="toggleDisplay('aiou-menu')">Open</button>
         <div id="aiou-menu" style="display:none; margin-top:10px;">
             <select style="width:100%; padding:5px;" onchange="showSubButtons(this.value, 'aiou')">
                 <option value="">کورس منتخب کریں</option>
-                <option value="SSC">میٹرک (SSC)</option><option value="HSSC">انٹر (HSSC)</option>
-                <option value="AD">ایسوسی ایٹ ڈگری</option><option value="BS">بی ایس (BS)</option>
-                <option value="BEd">بی ایڈ (B.Ed)</option><option value="PGD">PGD</option>
-                <option value="MPhil">ایم فل / ایم ایس</option><option value="PhD">پی ایچ ڈی</option>
+                <option value="SSC">میٹرک</option><option value="BS">بی ایس</option>
             </select>
-            <div id="aiou-btns" style="display:none;">
-                <button class="cat-btn" onclick="location.href='books.html'">نصابی کتب</button>
-                <button class="cat-btn" onclick="location.href='books.html'">امدادی کتب</button>
-            </div>
+            <div id="aiou-btns" style="display:none;"><button class="cat-btn" onclick="location.href='books.html'">نصابی کتب</button><button class="cat-btn" onclick="location.href='books.html'">امدادی کتب</button></div>
         </div>
     </div>
+
+    <div class="card"><h4>General Library</h4><button onclick="location.href='books.html'">Open</button></div>
 </section>
 
-<script>
-    function toggleDisplay(id) {
-        let el = document.getElementById(id);
-        el.style.display = (el.style.display === "none") ? "block" : "none";
-    }
-    function showSubButtons(val, prefix) {
-        if(val !== "") document.getElementById(prefix + '-btns').style.display = "block";
-    }
-</script>
+<section>
+    <div class="section-header">Digital Tools</div>
+    <h4 style="padding: 0 5%;">Premium Apps:</h4>
+    <div class="scroll-row"><div class="scroll-item"><div class="thumb"></div>CapCut<button>Download</button></div></div>
+    <h4 style="padding: 0 5%;">Premium Tools:</h4>
+    <div class="scroll-row"><div class="scroll-item"><div class="thumb"></div>Tool 1<button>Open</button></div></div>
+</section>
 
-<footer>
-    &copy; 2026 ADIL WARIA. All Rights Reserved.
-</footer>
+<section>
+    <div class="section-header">Courses</div>
+    <div class="scroll-row"><div class="scroll-item"><div class="thumb"></div>Naat Series<button>Watch</button></div></div>
+</section>
+
+<footer>&copy; 2026 ADIL WARIA. All Rights Reserved.</footer>
+
+<script>
+    function toggleDisplay(id) { let el = document.getElementById(id); el.style.display = (el.style.display === "none") ? "block" : "none"; }
+    function showSubButtons(val, prefix) { if(val !== "") document.getElementById(prefix + '-btns').style.display = "block"; }
+</script>
 </body>
 </html>
