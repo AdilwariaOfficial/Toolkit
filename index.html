@@ -3,29 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADIL WARIA | Official Website</title>
+    <title>ADIL WARIA | Official Hub</title>
     <style>
-        :root { --primary-green: #0a3d2e; --accent-gold: #c5a059; --bg-color: #f4f4f4; --text-color: #333; }
-        body.dark-mode { --bg-color: #1a1a1a; --text-color: #fff; }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--bg-color); color: var(--text-color); transition: 0.3s; }
+        :root { --primary-green: #0a3d2e; --accent-gold: #c5a059; --bg-light: #f4f4f4; --bg-dark: #121212; --card-light: #ffffff; --card-dark: #1e1e1e; --text-light: #333; --text-dark: #eee; }
+        body.dark-mode { background-color: var(--bg-dark); color: var(--text-dark); }
+        body { font-family: sans-serif; margin: 0; background-color: var(--bg-light); color: var(--text-light); transition: 0.3s; }
 
-        header { background: #fff; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #ddd; }
-        .logo { font-weight: bold; font-size: 20px; }
-        .nav-links a { margin-left: 15px; text-decoration: none; color: #333; font-size: 14px; font-weight: bold; }
+        /* Header & Footer Green Bar */
+        header, footer { background: #fff; padding: 15px 5%; border-bottom: 4px solid var(--primary-green); }
+        footer { background: #fff; border-top: 4px solid var(--primary-green); border-bottom: none; margin-top: 30px; text-align: center; }
+        body.dark-mode header, body.dark-mode footer { background: #1e1e1e; }
         
+        .logo { font-weight: bold; font-size: 20px; color: var(--text-light); }
+        body.dark-mode .logo { color: var(--text-dark); }
+        .nav-links a { margin-left: 10px; text-decoration: none; color: #333; font-size: 13px; font-weight: bold; }
+        body.dark-mode .nav-links a { color: #ccc; }
+
         .hero { background: var(--primary-green); color: white; padding: 40px 5%; text-align: center; }
         .search-container { padding: 20px 5%; display: flex; gap: 10px; }
-        input { flex: 1; padding: 12px; border: 1px solid #ccc; border-radius: 5px; }
+        input { flex: 1; padding: 12px; border: 1px solid #ccc; border-radius: 5px; background: #fff; }
         
-        .section-header { padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; }
-        .grid-4 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 0 5%; }
-        .card { background: white; padding: 15px; border-radius: 8px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); color: #333; }
+        .section-header { padding: 15px 5% 5px 5%; font-size: 18px; font-weight: bold; }
+        .grid-4 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 0 5% 20px 5%; }
+        .card { background: var(--card-light); padding: 15px; border-radius: 8px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        body.dark-mode .card { background: var(--card-dark); color: white; }
         
-        .scroll-row { display: flex; overflow-x: auto; gap: 15px; padding: 10px 5%; }
-        .scroll-item { min-width: 130px; background: white; padding: 10px; border-radius: 8px; text-align: center; color: #333; }
+        .scroll-row { display: flex; overflow-x: auto; gap: 15px; padding: 10px 5% 20px 5%; }
+        .scroll-item { min-width: 150px; background: var(--card-light); padding: 10px; border-radius: 8px; text-align: center; }
+        body.dark-mode .scroll-item { background: var(--card-dark); color: white; }
         
-        button { cursor: pointer; padding: 8px 12px; border: none; border-radius: 5px; background: var(--accent-gold); color: white; margin-top: 5px; font-weight: bold; }
-        .see-all { display: flex; align-items: center; color: var(--primary-green); font-weight: bold; text-decoration: none; }
+        .thumb { width: 100%; height: 100px; background: #ddd; border-radius: 5px; margin-bottom: 8px; }
+        button { cursor: pointer; padding: 6px 10px; border: none; border-radius: 5px; background: var(--accent-gold); color: white; font-weight: bold; width: 100%; margin-top: 5px; }
     </style>
 </head>
 <body>
@@ -33,7 +41,7 @@
 <header>
     <div class="logo">ADIL WARIA</div>
     <div class="nav-links">
-        <a href="#">Home</a><a href="#">About</a><a href="#">Contact</a><a href="#">Upload</a>
+        <a href="#">Home</a><a href="#">Upload</a>
     </div>
 </header>
 
@@ -44,43 +52,44 @@
 
 <section class="search-container">
     <input type="text" placeholder="Search here...">
-    <button onclick="document.body.classList.toggle('dark-mode')">🌙</button>
+    <button style="width:auto;" onclick="document.body.classList.toggle('dark-mode')">🌙</button>
 </section>
 
 <section>
-    <div class="section-header"><h2>Digital Library</h2></div>
+    <div class="section-header">Digital Library</div>
     <div class="grid-4">
-        <div class="card"><h4>General Library</h4><button>Open</button></div>
-        <div class="card"><h4>وفاق المدارس</h4><button>Open</button></div>
-        <div class="card"><h4>All Boards</h4><button>Open</button></div>
-        <div class="card"><h4>علامہ اقبال یونیورسٹی</h4><button>Open</button></div>
+        <div class="card"><h4>General Library<br><small style="color:gray;">جنرل لائبریری</small></h4><button>Open</button></div>
+        <div class="card"><h4>Wifaq-ul-Madaris<br><small style="color:gray;">وفاق المدارس</small></h4><button>Open</button></div>
+        <div class="card"><h4>All Boards<br><small style="color:gray;">آل بورڈز</small></h4><button>Open</button></div>
+        <div class="card"><h4>AIOU<br><small style="color:gray;">علامہ اقبال یونیورسٹی</small></h4><button>Open</button></div>
     </div>
 </section>
 
 <section>
-    <div class="section-header"><h2>Digital Tools</h2></div>
+    <div class="section-header">Digital Tools</div>
     <h4 style="padding: 0 5%;">Premium Apps:</h4>
     <div class="scroll-row">
-        <div class="scroll-item">CapCut<br><button>Download</button></div>
-        <div class="scroll-item">Remini<br><button>Download</button></div>
-        <a href="#" class="see-all">See All →</a>
+        <div class="scroll-item"><div class="thumb"></div>CapCut<button>Download</button><button>Open</button></div>
+        <div class="scroll-item"><div class="thumb"></div>Remini<button>Download</button><button>Open</button></div>
     </div>
     <h4 style="padding: 0 5%;">Premium Tools:</h4>
     <div class="scroll-row">
-        <div class="scroll-item">Tool 1<br><button>Visit</button></div>
-        <div class="scroll-item">Tool 2<br><button>Visit</button></div>
-        <a href="#" class="see-all">See All →</a>
+        <div class="scroll-item"><div class="thumb"></div>Tool 1<button>Download</button><button>Open</button></div>
+        <div class="scroll-item"><div class="thumb"></div>Tool 2<button>Download</button><button>Open</button></div>
     </div>
 </section>
 
 <section>
-    <div class="section-header"><h2>Courses</h2></div>
+    <div class="section-header">Courses</div>
     <div class="scroll-row">
-        <div class="scroll-item">Naat 1<br><button>Watch</button> <button>⬇</button></div>
-        <div class="scroll-item">Naat 2<br><button>Watch</button> <button>⬇</button></div>
-        <a href="#" class="see-all">See All →</a>
+        <div class="scroll-item" style="min-height: 180px;"><div class="thumb" style="height: 120px;"></div>Naat Series<button>Watch</button><button>Download</button></div>
+        <div class="scroll-item" style="min-height: 180px;"><div class="thumb" style="height: 120px;"></div>Naat Series<button>Watch</button><button>Download</button></div>
     </div>
 </section>
+
+<footer>
+    &copy; 2026 ADIL WARIA. All Rights Reserved.
+</footer>
 
 </body>
 </html>
