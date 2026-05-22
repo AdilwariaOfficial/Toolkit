@@ -25,17 +25,25 @@
         .search-icon { position: absolute; left: 6%; color: #888; pointer-events: none; }
         input { flex: 1; padding: 12px; padding-left: 40px; border: 1px solid #ccc; border-radius: 5px; background: #fff; width: 100%; box-sizing: border-box; }
         
-        /* وہ خوبصورت ٹیگ باکس اسٹائل جو آپ نے مانگا تھا */
-        .tag-box { 
-            display: inline-block; padding: 5px 15px; margin: 20px 5% 5px 5%; 
-            border: 2px solid var(--accent-gold); border-radius: 5px; 
-            color: var(--primary-green); font-weight: bold; background: rgba(197, 160, 89, 0.1); 
+        /* وہ خاص گرافک ہیڈر اسٹائل (جو شوق سے پھیکا ہوتا ہے) */
+        .section-header { 
+            padding: 0 5% 5px 5%; 
+            font-size: 20px; 
+            font-weight: bold; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            margin: 20px 5% 15px 5%; /* پوزیشن کو سیٹ کرنے کے لیے */
+            background-image: url('https://wariaofficial.github.io/assets/images/header-bar.png'); /* یہ وہ خاص امیج ہے */
+            background-repeat: no-repeat;
+            background-position: bottom left; /* پٹی نیچے اور بائیں طرف ہو گی */
+            background-size: contain; /* پٹی کو عبارت کے مطابق چھوٹا کرنے کے لیے */
+            height: 45px; /* پٹی کو دکھانے کے لیے اونچائی */
+            color: var(--primary-green); /* عبارت کا رنگ سبز */
         }
-        body.dark-mode .tag-box { color: var(--accent-gold); border-color: var(--accent-gold); }
-        
-        .section-header { padding: 0 5% 5px 5%; font-size: 18px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+        body.dark-mode .section-header { color: white; } /* ڈارک موڈ میں سفید عبارت */
+
         .grid-4 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 0 5% 20px 5%; }
-        
         .card { background: var(--card-light); padding: 25px 15px; border-radius: 8px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); color: #333; display: flex; flex-direction: column; align-items: center; gap: 10px; }
         body.dark-mode .card { background: var(--card-dark); color: white; }
         .card-icon { font-size: 35px; color: var(--accent-gold); margin-bottom: 5px; }
@@ -69,8 +77,7 @@
 </section>
 
 <section>
-    <div class="tag-box">LIBRARY</div>
-    <div class="section-header">Digital Library</div>
+    <div class="section-header"><span>Digital Library</span></div>
     <div class="grid-4">
         <div class="card"><i class="fas fa-book card-icon"></i><h4>General Library</h4><button onclick="location.href='books.html'">Open</button></div>
         <div class="card"><i class="fas fa-mosque card-icon"></i><h4>Wifaq-ul-Madaris</h4><button onclick="toggleDisplay('wifaq-menu')">Open</button>
@@ -78,9 +85,6 @@
                 <select style="width:100%; padding:5px;" onchange="showSubButtons(this.value, 'wifaq')">
                     <option value="">درجہ منتخب کریں</option>
                     <option value="تجوید">تجوید</option><option value="ابتدائیہ">ابتدائیہ</option><option value="اولیٰ">اولیٰ</option>
-                    <option value="ثانیہ">ثانیہ</option><option value="ثالثہ">ثالثہ</option><option value="رابعہ">رابعہ</option>
-                    <option value="خامسہ">خامسہ</option><option value="سادسہ">سادسہ</option><option value="سابعہ">سابعہ</option>
-                    <option value="عالمیہ">عالمیہ</option><option value="تخصص">تخصص</option>
                 </select>
                 <div id="wifaq-btns" style="display:none; margin-top: 5px;"><button class="cat-btn" onclick="location.href='books.html'">نصابی کتب</button><button class="cat-btn" onclick="location.href='books.html'">امدادی کتب</button></div>
             </div>
@@ -89,7 +93,7 @@
             <div id="board-menu" style="display:none; margin-top:10px; width: 100%;">
                 <select style="width:100%; padding:5px;" onchange="showSubButtons(this.value, 'board')">
                     <option value="">کلاس منتخب کریں</option>
-                    <option value="9th">9th</option><option value="10th">10th</option><option value="11th">11th</option><option value="12th">12th</option>
+                    <option value="9th">9th</option><option value="10th">10th</option>
                 </select>
                 <div id="board-btns" style="display:none; margin-top: 5px;"><button class="cat-btn" onclick="location.href='books.html'">نصابی کتب</button><button class="cat-btn" onclick="location.href='books.html'">امدادی کتب</button></div>
             </div>
@@ -98,7 +102,7 @@
             <div id="aiou-menu" style="display:none; margin-top:10px; width: 100%;">
                 <select style="width:100%; padding:5px;" onchange="showSubButtons(this.value, 'aiou')">
                     <option value="">کورس منتخب کریں</option>
-                    <option value="SSC">میٹرک</option><option value="HSSC">انٹر</option><option value="AD">ایسوسی ایٹ</option><option value="BS">بی ایس</option>
+                    <option value="SSC">میٹرک</option><option value="BS">بی ایس</option>
                 </select>
                 <div id="aiou-btns" style="display:none; margin-top: 5px;"><button class="cat-btn" onclick="location.href='books.html'">نصابی کتب</button><button class="cat-btn" onclick="location.href='books.html'">امدادی کتب</button></div>
             </div>
@@ -107,8 +111,7 @@
 </section>
 
 <section>
-    <div class="tag-box">TOOLS</div>
-    <div class="section-header">Digital Tools <a href="#" class="see-all-link">See All →</a></div>
+    <div class="section-header"><span>Digital Tools</span> <a href="#" class="see-all-link">See All →</a></div>
     <h4 style="padding: 0 5%;">Premium Apps:</h4>
     <div class="scroll-row"><div class="scroll-item"><div class="thumb"></div>CapCut<button>Download</button></div><div class="scroll-item"><div class="thumb"></div>Remini<button>Download</button></div></div>
     <h4 style="padding: 0 5%;">Premium Tools:</h4>
@@ -116,8 +119,7 @@
 </section>
 
 <section>
-    <div class="tag-box">COURSES</div>
-    <div class="section-header">Courses <a href="#" class="see-all-link">See All →</a></div>
+    <div class="section-header"><span>Courses</span> <a href="#" class="see-all-link">See All →</a></div>
     <div class="scroll-row"><div class="scroll-item"><div class="thumb"></div>Naat Series<button>Watch</button></div><div class="scroll-item"><div class="thumb"></div>Naat Series<button>Watch</button></div></div>
 </section>
 
