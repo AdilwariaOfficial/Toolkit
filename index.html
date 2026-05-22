@@ -2,36 +2,63 @@
 <html lang="ur" dir="ltr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADIL WARIA® | Official</title>
     <style>
         :root { --primary-green: #0a3d2e; --accent-gold: #c5a059; }
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f4f4; }
         
+        /* ہیڈر */
         header { background: var(--primary-green); color: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--accent-gold); }
-        .section { padding: 20px 5%; }
+        .hero { height: 300px; background: linear-gradient(rgba(10, 61, 46, 0.8), rgba(10, 61, 46, 0.8)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070'); background-size: cover; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; }
         
-        /* Grid for Rows */
+        /* سیکشنز کی قطاری ترتیب */
+        .section { padding: 20px 5%; }
+        .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
         .list-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-        .item-card { background: white; padding: 10px; border-radius: 8px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .item-card { background: white; padding: 10px; border-radius: 8px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-top: 3px solid var(--accent-gold); }
         .btn-group { display: flex; gap: 5px; margin-top: 5px; }
-        .btn { flex: 1; padding: 5px; font-size: 12px; border: none; cursor: pointer; border-radius: 3px; }
+        .btn { flex: 1; padding: 5px; font-size: 11px; border: none; cursor: pointer; border-radius: 3px; }
         .btn-watch { background: var(--accent-gold); color: white; }
         .btn-down { background: var(--primary-green); color: white; }
         
-        /* Modal for Video */
-        #videoModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center; }
+        /* ویڈیو پلیئر */
+        #videoModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; }
         #videoModal iframe { width: 90%; height: 60%; background: white; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo">ADIL WARIA®</div>
+    <div class="logo" style="font-weight:bold;">ADIL WARIA®</div>
     <div>☰ MENU</div>
 </header>
 
+<section class="hero">
+    <h1>ADIL WARIA®</h1>
+    <p>علم اور ٹیکنالوجی کا سنگم</p>
+</section>
+
 <section class="section">
-    <h2>Premium Courses / پریمیم کورسز</h2>
+    <div class="section-header"><h2>Library / لائبریری</h2> <a href="#">View All →</a></div>
+    <div class="list-container">
+        <div class="item-card"><h3>وفاق</h3><button class="btn btn-watch">Open</button></div>
+        <div class="item-card"><h3>بورڈز</h3><button class="btn btn-watch">Open</button></div>
+        <div class="item-card"><h3>جنرل</h3><button class="btn btn-watch">Open</button></div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-header"><h2>Tools / ٹولز</h2> <a href="#">View All →</a></div>
+    <div class="list-container">
+        <div class="item-card"><h4>CapCut</h4><button class="btn btn-watch">Visit</button></div>
+        <div class="item-card"><h4>Remini</h4><button class="btn btn-watch">Visit</button></div>
+        <div class="item-card"><h4>Tool 3</h4><button class="btn btn-watch">Visit</button></div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-header"><h2>Courses / کورسز</h2> <a href="#">View All →</a></div>
     <div class="list-container" id="videoGrid"></div>
 </section>
 
@@ -40,22 +67,19 @@
 </div>
 
 <script>
-    const videos = ["Llu1GAy_lYE", "R3_keBvmuNk", "szY-yqLj3Fg", "oSrb1jqIhm0", "kvZbwAbrwiY", "R9738HmbQPM"];
+    const videos = ["Llu1GAy_lYE", "R3_keBvmuNk", "szY-yqLj3Fg"];
     const grid = document.getElementById('videoGrid');
-    
     videos.forEach(id => {
         grid.innerHTML += `
             <div class="item-card">
                 <img src="https://img.youtube.com/vi/${id}/mqdefault.jpg" style="width:100%; border-radius:5px;">
-                <p style="font-size:12px; font-weight:bold;">نعت شریف</p>
+                <p style="font-size:12px;">نعت شریف</p>
                 <div class="btn-group">
                     <button class="btn btn-watch" onclick="playVideo('${id}')">WATCH</button>
                     <a href="https://ssyoutube.com/watch?v=${id}" class="btn btn-down" target="_blank">⬇</a>
                 </div>
-            </div>
-        `;
+            </div>`;
     });
-
     function playVideo(id) {
         document.getElementById('videoPlayer').src = "https://www.youtube.com/embed/" + id + "?autoplay=1";
         document.getElementById('videoModal').style.display = "flex";
