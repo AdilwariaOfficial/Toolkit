@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ur" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,78 +7,83 @@
     <style>
         :root { --primary-green: #0a3d2e; --accent-gold: #c5a059; }
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f4f4; }
-
-        header { background: var(--primary-green); color: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--accent-gold); }
-        .logo { font-weight: bold; font-size: 22px; color: white; text-decoration: none; }
         
+        /* ہیڈر */
+        header { background: var(--primary-green); color: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--accent-gold); }
+        .hero { height: 300px; background: linear-gradient(rgba(10, 61, 46, 0.8), rgba(10, 61, 46, 0.8)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070'); background-size: cover; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; }
+        
+        /* سیکشنز کی قطاری ترتیب */
         .section { padding: 20px 5%; }
-        .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        h2 { margin: 0; font-size: 18px; }
-
-        .scroll-container { display: flex; overflow-x: auto; gap: 15px; padding-bottom: 10px; }
-        .scroll-container::-webkit-scrollbar { display: none; }
-
-        /* کارڈ کا سائز ناموں کے لیے تھوڑا مزید بڑھایا گیا ہے */
-        .card { min-width: 150px; background: white; padding: 12px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e0e0e0; }
-        .card img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; margin-bottom: 8px; }
-        .card h4 { margin: 5px 0; font-size: 13px; min-height: 35px; }
-
-        .btn-group { display: flex; gap: 5px; margin-top: 8px; }
-        .btn { flex: 1; padding: 6px 0; border: none; border-radius: 5px; cursor: pointer; font-size: 11px; font-weight: bold; text-decoration: none; text-align: center; }
-        .btn-gold { background: var(--accent-gold); color: white; }
-        .btn-green { background: var(--primary-green); color: white; }
-
-        .see-all { display: flex; align-items: center; justify-content: center; min-width: 60px; background: var(--primary-green); color: white; border-radius: 12px; text-decoration: none; font-size: 24px; }
+        .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .list-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .item-card { background: white; padding: 10px; border-radius: 8px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-top: 3px solid var(--accent-gold); }
+        .btn-group { display: flex; gap: 5px; margin-top: 5px; }
+        .btn { flex: 1; padding: 5px; font-size: 11px; border: none; cursor: pointer; border-radius: 3px; }
+        .btn-watch { background: var(--accent-gold); color: white; }
+        .btn-down { background: var(--primary-green); color: white; }
+        
+        /* ویڈیو پلیئر */
+        #videoModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; }
+        #videoModal iframe { width: 90%; height: 60%; background: white; }
     </style>
 </head>
 <body>
 
 <header>
-    <a href="#" class="logo">ADIL WARIA®</a>
-    <div style="font-weight:bold; cursor:pointer;">MENU ☰</div>
+    <div class="logo" style="font-weight:bold;">ADIL WARIA®</div>
+    <div>☰ MENU</div>
 </header>
 
+<section class="hero">
+    <h1>ADIL WARIA®</h1>
+    <p>علم اور ٹیکنالوجی کا سنگم</p>
+</section>
+
 <section class="section">
-    <div class="section-header"><h2>Library / لائبریری</h2></div>
-    <div class="scroll-container">
-        <div class="card"><h4>General Library</h4><a href="#" class="btn btn-gold">Open</a></div>
-        <div class="card"><h4>وفاق المدارس</h4><a href="#" class="btn btn-gold">Open</a></div>
-        <div class="card"><h4>آل بورڈز</h4><a href="#" class="btn btn-gold">Open</a></div>
-        <div class="card"><h4>علامہ اقبال اوپن یونیورسٹی</h4><a href="#" class="btn btn-gold">Open</a></div>
-        <a href="#" class="see-all">→</a>
+    <div class="section-header"><h2>Library / لائبریری</h2> <a href="#">View All →</a></div>
+    <div class="list-container">
+        <div class="item-card"><h3>وفاق</h3><button class="btn btn-watch">Open</button></div>
+        <div class="item-card"><h3>بورڈز</h3><button class="btn btn-watch">Open</button></div>
+        <div class="item-card"><h3>جنرل</h3><button class="btn btn-watch">Open</button></div>
     </div>
 </section>
 
 <section class="section">
-    <div class="section-header"><h2>Digital Tools / ڈیجیٹل ٹولز</h2></div>
-    <p style="margin-top:-15px; font-size: 11px; color: #666;">Premium Apps</p>
-    <div class="scroll-container">
-        <div class="card"><h4>CapCut Pro</h4><a href="#" class="btn btn-green">Visit</a></div>
-        <div class="card"><h4>Remini Pro</h4><a href="#" class="btn btn-green">Visit</a></div>
-        <a href="#" class="see-all">→</a>
+    <div class="section-header"><h2>Tools / ٹولز</h2> <a href="#">View All →</a></div>
+    <div class="list-container">
+        <div class="item-card"><h4>CapCut</h4><button class="btn btn-watch">Visit</button></div>
+        <div class="item-card"><h4>Remini</h4><button class="btn btn-watch">Visit</button></div>
+        <div class="item-card"><h4>Tool 3</h4><button class="btn btn-watch">Visit</button></div>
     </div>
 </section>
 
 <section class="section">
-    <div class="section-header"><h2>Courses / کورسز</h2></div>
-    <div class="scroll-container" id="videoGrid"></div>
+    <div class="section-header"><h2>Courses / کورسز</h2> <a href="#">View All →</a></div>
+    <div class="list-container" id="videoGrid"></div>
 </section>
+
+<div id="videoModal" onclick="this.style.display='none'">
+    <iframe id="videoPlayer" src="" frameborder="0" allowfullscreen></iframe>
+</div>
 
 <script>
     const videos = ["Llu1GAy_lYE", "R3_keBvmuNk", "szY-yqLj3Fg"];
     const grid = document.getElementById('videoGrid');
     videos.forEach(id => {
         grid.innerHTML += `
-            <div class="card">
-                <img src="https://img.youtube.com/vi/${id}/mqdefault.jpg">
-                <h4>Naat Sharif 2025</h4>
+            <div class="item-card">
+                <img src="https://img.youtube.com/vi/${id}/mqdefault.jpg" style="width:100%; border-radius:5px;">
+                <p style="font-size:12px;">نعت شریف</p>
                 <div class="btn-group">
-                    <a href="#" class="btn btn-gold">WATCH</a>
-                    <a href="#" class="btn btn-green">⬇</a>
+                    <button class="btn btn-watch" onclick="playVideo('${id}')">WATCH</button>
+                    <a href="https://ssyoutube.com/watch?v=${id}" class="btn btn-down" target="_blank">⬇</a>
                 </div>
             </div>`;
     });
-    grid.innerHTML += `<a href="#" class="see-all">→</a>`;
+    function playVideo(id) {
+        document.getElementById('videoPlayer').src = "https://www.youtube.com/embed/" + id + "?autoplay=1";
+        document.getElementById('videoModal').style.display = "flex";
+    }
 </script>
 
 </body>
