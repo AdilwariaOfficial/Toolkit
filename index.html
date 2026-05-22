@@ -2,71 +2,65 @@
 <html lang="ur" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADIL WARIA® | Official</title>
     <style>
         :root { --primary-green: #0a3d2e; --accent-gold: #c5a059; }
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f4f4; }
+        
         header { background: var(--primary-green); color: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--accent-gold); }
-        .logo { font-weight: bold; font-size: 22px; }
-        .hero { height: 350px; background: linear-gradient(rgba(10, 61, 46, 0.8), rgba(10, 61, 46, 0.8)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070'); background-size: cover; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; }
-        .section { padding: 30px 5%; }
-        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-        @media (min-width: 768px) { .grid { grid-template-columns: repeat(4, 1fr); } }
-        .card { background: white; padding: 15px; border-radius: 8px; text-align: center; border-top: 3px solid var(--accent-gold); box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .btn-watch { display: block; background: var(--accent-gold); color: white; padding: 8px; text-decoration: none; border-radius: 4px; font-weight: bold; margin-top: 10px; }
-        .btn-download { display: inline-block; background: var(--primary-green); color: white; padding: 5px 10px; border-radius: 4px; text-decoration: none; font-size: 18px; margin-top: 5px; }
+        .section { padding: 20px 5%; }
+        
+        /* Grid for Rows */
+        .list-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .item-card { background: white; padding: 10px; border-radius: 8px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .btn-group { display: flex; gap: 5px; margin-top: 5px; }
+        .btn { flex: 1; padding: 5px; font-size: 12px; border: none; cursor: pointer; border-radius: 3px; }
+        .btn-watch { background: var(--accent-gold); color: white; }
+        .btn-down { background: var(--primary-green); color: white; }
+        
+        /* Modal for Video */
+        #videoModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center; }
+        #videoModal iframe { width: 90%; height: 60%; background: white; }
     </style>
 </head>
 <body>
 
 <header>
     <div class="logo">ADIL WARIA®</div>
-    <div style="cursor: pointer;">☰ MENU</div>
+    <div>☰ MENU</div>
 </header>
-
-<section class="hero">
-    <h1>ADIL WARIA®</h1>
-    <p>Empowering Minds through Knowledge | علم اور ٹیکنالوجی کا سنگم</p>
-</section>
-
-<section class="section">
-    <h2>Digital Library / ڈیجیٹل لائبریری</h2>
-    <div class="grid">
-        <div class="card"><h3>وفاق المدارس</h3><a href="#" class="btn-watch" style="background:var(--primary-green)">Open</a></div>
-        <div class="card"><h3>علامہ اقبال</h3><a href="#" class="btn-watch" style="background:var(--primary-green)">Open</a></div>
-        <div class="card"><h3>آل بورڈز</h3><a href="#" class="btn-watch" style="background:var(--primary-green)">Open</a></div>
-        <div class="card"><h3>جنرل لائبریری</h3><a href="#" class="btn-watch" style="background:var(--primary-green)">Open</a></div>
-    </div>
-</section>
-
-<section class="section">
-    <h2>Digital Tools / ڈیجیٹل ٹولز</h2>
-    <div class="grid">
-        <script>for(let i=1; i<=12; i++) document.write('<div class="card"><h3>Tool '+i+'</h3><p>Premium App</p><a href="#" class="btn-watch">Visit</a></div>');</script>
-    </div>
-</section>
 
 <section class="section">
     <h2>Premium Courses / پریمیم کورسز</h2>
-    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-        
-        <script>
-            const videos = ["Llu1GAy_lYE", "R3_keBvmuNk", "szY-yqLj3Fg", "oSrb1jqIhm0", "kvZbwAbrwiY", "R9738HmbQPM"];
-            videos.forEach(id => {
-                document.write(`
-                    <div class="card">
-                        <img src="https://img.youtube.com/vi/${id}/mqdefault.jpg" style="width:100%; border-radius:5px;">
-                        <h3>نعت شریف</h3>
-                        <p>نعت شریف 2025</p>
-                        <a href="https://www.youtube.com/watch?v=${id}" target="_blank" class="btn-watch">WATCH</a>
-                        <a href="#" class="btn-download">⬇</a>
-                    </div>
-                `);
-            });
-        </script>
-    </div>
+    <div class="list-container" id="videoGrid"></div>
 </section>
+
+<div id="videoModal" onclick="this.style.display='none'">
+    <iframe id="videoPlayer" src="" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<script>
+    const videos = ["Llu1GAy_lYE", "R3_keBvmuNk", "szY-yqLj3Fg", "oSrb1jqIhm0", "kvZbwAbrwiY", "R9738HmbQPM"];
+    const grid = document.getElementById('videoGrid');
+    
+    videos.forEach(id => {
+        grid.innerHTML += `
+            <div class="item-card">
+                <img src="https://img.youtube.com/vi/${id}/mqdefault.jpg" style="width:100%; border-radius:5px;">
+                <p style="font-size:12px; font-weight:bold;">نعت شریف</p>
+                <div class="btn-group">
+                    <button class="btn btn-watch" onclick="playVideo('${id}')">WATCH</button>
+                    <a href="https://ssyoutube.com/watch?v=${id}" class="btn btn-down" target="_blank">⬇</a>
+                </div>
+            </div>
+        `;
+    });
+
+    function playVideo(id) {
+        document.getElementById('videoPlayer').src = "https://www.youtube.com/embed/" + id + "?autoplay=1";
+        document.getElementById('videoModal').style.display = "flex";
+    }
+</script>
 
 </body>
 </html>
