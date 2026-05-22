@@ -9,14 +9,15 @@
         body.dark-mode { background-color: var(--bg-dark); color: var(--text-dark); }
         body { font-family: sans-serif; margin: 0; background-color: var(--bg-light); color: var(--text-light); transition: 0.3s; }
 
-        header, footer { background: #fff; padding: 15px 5%; border-bottom: 4px solid var(--primary-green); }
-        footer { background: #fff; border-top: 4px solid var(--primary-green); border-bottom: none; margin-top: 30px; text-align: center; }
-        body.dark-mode header, body.dark-mode footer { background: #1e1e1e; }
+        /* ہیڈر اور فوٹر کا سبز رنگ */
+        header, footer { background: var(--primary-green); padding: 15px 5%; color: white; }
+        header { border-bottom: 4px solid var(--accent-gold); }
+        footer { border-top: 4px solid var(--accent-gold); text-align: center; margin-top: 30px; }
         
-        .logo { font-weight: bold; font-size: 20px; color: var(--text-light); }
-        body.dark-mode .logo { color: var(--text-dark); }
-        .nav-links a { margin-left: 10px; text-decoration: none; color: #333; font-size: 13px; font-weight: bold; }
-        body.dark-mode .nav-links a { color: #ccc; }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: bold; font-size: 18px; display: flex; align-items: center; gap: 8px; }
+        .nav-links { display: flex; gap: 10px; }
+        .nav-links a { text-decoration: none; color: white; font-size: 12px; font-weight: bold; text-transform: uppercase; }
 
         .hero { background: var(--primary-green); color: white; padding: 40px 5%; text-align: center; }
         .search-container { padding: 20px 5%; display: flex; gap: 10px; }
@@ -24,24 +25,27 @@
         
         .section-header { padding: 15px 5% 5px 5%; font-size: 18px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
         .grid-4 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 0 5% 20px 5%; }
-        .card { background: var(--card-light); padding: 15px; border-radius: 8px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .card { background: var(--card-light); padding: 15px; border-radius: 8px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); color: #333; }
         body.dark-mode .card { background: var(--card-dark); color: white; }
         
         .scroll-row { display: flex; overflow-x: auto; gap: 15px; padding: 10px 5% 20px 5%; }
-        .scroll-item { min-width: 150px; background: var(--card-light); padding: 10px; border-radius: 8px; text-align: center; }
+        .scroll-item { min-width: 150px; background: var(--card-light); padding: 10px; border-radius: 8px; text-align: center; color: #333; }
         body.dark-mode .scroll-item { background: var(--card-dark); color: white; }
         
         .thumb { width: 100%; height: 100px; background: #ddd; border-radius: 5px; margin-bottom: 8px; }
         button { cursor: pointer; padding: 8px 10px; border: none; border-radius: 5px; background: var(--accent-gold); color: white; font-weight: bold; width: 100%; margin-top: 5px; }
         .see-all-link { font-size: 14px; color: var(--primary-green); text-decoration: none; font-weight: bold; }
+        body.dark-mode .see-all-link { color: var(--accent-gold); }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo">ADIL WARIA</div>
-    <div class="nav-links">
-        <a href="#">Home</a><a href="#">Upload</a>
+    <div class="header-content">
+        <div class="logo">🏠 ADIL WARIA</div>
+        <div class="nav-links">
+            <a href="#">HOME</a><a href="#">ABOUT</a><a href="#">CONTACT</a><a href="#">UPLOAD</a>
+        </div>
     </div>
 </header>
 
@@ -67,13 +71,11 @@
 
 <section>
     <div class="section-header">Digital Tools <a href="#" class="see-all-link">See All →</a></div>
-    
     <h4 style="padding: 0 5%;">Premium Apps:</h4>
     <div class="scroll-row">
         <div class="scroll-item"><div class="thumb"></div>CapCut<button>Download</button></div>
         <div class="scroll-item"><div class="thumb"></div>Remini<button>Download</button></div>
     </div>
-
     <h4 style="padding: 0 5%;">Premium Tools:</h4>
     <div class="scroll-row">
         <div class="scroll-item"><div class="thumb"></div>Tool 1<button>Open</button></div>
