@@ -72,7 +72,10 @@
 
 <section>
     <div class="section-header">Digital Tools <a href="#" class="see-all-link">See All →</a></div>
+    <h4 style="padding: 0 5%;">Premium Apps:</h4>
     <div class="scroll-row"><div class="scroll-item"><div class="thumb"></div>CapCut<button>Download</button></div><div class="scroll-item"><div class="thumb"></div>Remini<button>Download</button></div></div>
+    <h4 style="padding: 0 5%;">Premium Tools:</h4>
+    <div class="scroll-row"><div class="scroll-item"><div class="thumb"></div>Tool 1<button>Open</button></div><div class="scroll-item"><div class="thumb"></div>Tool 2<button>Open</button></div></div>
 </section>
 
 <section>
@@ -83,17 +86,18 @@
 <footer>&copy; 2026 ADIL WARIA. All Rights Reserved.</footer>
 
 <script>
-    // گوگل شیٹ کا ڈیٹا لانے کے لیے فنکشن
+    // گوگل شیٹ کا لنک یہاں محفوظ ہے
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyi2ilqitOxTHkwWAcYU0Wrc-xhzwSgZvJk8JZy_-6N40xnRFkvZk8uVHACePzS7opI/exec';
     
-    async function loadBooks() {
+    // ڈیٹا لانے کا فنکشن (آپ کے سسٹم کے لیے تیار)
+    async function checkData() {
         try {
             let res = await fetch(scriptURL);
             let data = await res.json();
-            console.log("ڈیٹا مل گیا:", data);
-        } catch (e) { console.log("ڈیٹا میں مسئلہ ہے"); }
+            console.log("ڈیٹا کامیابی سے لنک ہو گیا ہے");
+        } catch (e) { console.log("ڈیٹا فی الحال لوڈ نہیں ہوا"); }
     }
-    loadBooks();
+    checkData();
 
     function toggleDisplay(id) { 
         let el = document.getElementById(id); 
