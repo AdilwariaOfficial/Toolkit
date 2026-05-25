@@ -6,19 +6,19 @@
     <title>لائبریری | ADIL WARIA</title>
     <style>
         body { font-family: sans-serif; background-color: #f4f4f4; margin: 0; }
-        .header { background: #0a3d2e; color: white; padding: 15px; text-align: center; }
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; padding: 15px; }
+        .header { background: #0a3d2e; color: white; padding: 20px; text-align: center; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; padding: 20px; }
         .book-card { background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
         .book-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 4px; }
         .btn-group { display: flex; gap: 5px; margin-top: 10px; }
-        button { flex: 1; padding: 8px; border: none; border-radius: 4px; cursor: pointer; font-size: 12px; }
+        button { flex: 1; padding: 8px; border: none; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold; }
         .read { background: #0a3d2e; color: white; }
         .down { background: #c5a059; color: white; }
     </style>
 </head>
 <body>
 
-<div class="header"><h2 id="cat-title">کتابیں</h2></div>
+<div class="header"><h2 id="cat-title">لائبریری</h2></div>
 <div class="grid-container" id="book-grid"></div>
 
 <script>
@@ -26,25 +26,25 @@
 
     async function loadBooks() {
         const params = new URLSearchParams(window.location.search);
-        const cat = params.get('cat'); // شعبہ
-        const subCat = params.get('sub'); // نصابی یا امدادی
-        
-        document.getElementById('cat-title').innerText = cat + (subCat ? " - " + subCat : "");
+        const cat = params.get('cat');
+        const sub = params.get('sub');
+        document.getElementById('cat-title').innerText = cat + (sub ? " - " + sub : "");
 
         let res = await fetch(scriptURL);
         let data = await res.json();
         let grid = document.getElementById('book-grid');
+        grid.innerHTML = '';
 
         for (let i = 1; i < data.length; i++) {
             let row = data[i]; 
-            // فرض کریں: کالم B=شعبہ، کالم C=ذیلی قسم، کالم F=نام
-            if (row[1] === cat && (!subCat || row[2] === subCat)) {
+            // row[1] = کیٹیگری (B), row[2] = سب کیٹیگری (C), row[5] = نام (F)
+            if (row[1] === cat && (!sub || row[2] === sub)) {
                 grid.innerHTML += `
                     <div class="book-card">
                         <img src="${row[9]}" onerror="this.src='https://via.placeholder.com/150'">
                         <h5>${row[5]}</h5>
                         <div class="btn-group">
-                            <button class="read" onclick="window.open('${row[7]}')">پڑھنا</button>
+                            <button class="read" onclick="window.open('${row[7]}')">آن لائن</button>
                             <button class="down" onclick="window.open('${row[8]}')">ڈاؤن لوڈ</button>
                         </div>
                     </div>`;
