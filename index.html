@@ -63,10 +63,10 @@
 <section>
     <div class="section-header">Digital Library</div>
     <div class="grid-4">
-        <div class="card"><i class="fas fa-book card-icon"></i><h4>General Library</h4><button onclick="location.href='books.html'">Open</button></div>
-        <div class="card"><i class="fas fa-mosque card-icon"></i><h4>Wifaq-ul-Madaris</h4><button onclick="toggleDisplay('wifaq-menu')">Open</button><div id="wifaq-menu" style="display:none; margin-top:10px; width: 100%;"><select style="width:100%; padding:5px;" onchange="showSubButtons(this.value, 'wifaq')"><option value="">درجہ منتخب کریں</option><option value="تجوید">تجوید</option><option value="ابتدائیہ">ابتدائیہ</option><option value="اولیٰ">اولیٰ</option><option value="ثانیہ">ثانیہ</option><option value="ثالثہ">ثالثہ</option><option value="رابعہ">رابعہ</option><option value="خامسہ">خامسہ</option><option value="سادسہ">سادسہ</option><option value="سابعہ">سابعہ</option><option value="عالمیہ">عالمیہ</option><option value="تخصص">تخصص</option></select><div id="wifaq-btns" style="display:none; margin-top: 5px;"><button class="cat-btn" onclick="location.href='books.html'">نصابی کتب</button><button class="cat-btn" onclick="location.href='books.html'">امدادی کتب</button></div></div></div>
-        <div class="card"><i class="fas fa-chalkboard-teacher card-icon"></i><h4>All Boards</h4><button onclick="toggleDisplay('board-menu')">Open</button><div id="board-menu" style="display:none; margin-top:10px; width: 100%;"><select style="width:100%; padding:5px;" onchange="showSubButtons(this.value, 'board')"><option value="">کلاس منتخب کریں</option><option value="9th">9th</option><option value="10th">10th</option><option value="11th">11th</option><option value="12th">12th</option></select><div id="board-btns" style="display:none; margin-top: 5px;"><button class="cat-btn" onclick="location.href='books.html'">نصابی کتب</button><button class="cat-btn" onclick="location.href='books.html'">امدادی کتب</button></div></div></div>
-        <div class="card"><i class="fas fa-university card-icon"></i><h4>AIOU</h4><button onclick="toggleDisplay('aiou-menu')">Open</button><div id="aiou-menu" style="display:none; margin-top:10px; width: 100%;"><select style="width:100%; padding:5px;" onchange="showSubButtons(this.value, 'aiou')"><option value="">کورس منتخب کریں</option><option value="SSC">میٹرک (SSC)</option><option value="HSSC">انٹر (HSSC)</option><option value="AD">ایسوسی ایٹ ڈگری</option><option value="BS">بی ایس (BS)</option><option value="BEd">بی ایڈ (B.Ed)</option><option value="PGD">PGD</option><option value="MPhil">ایم فل / ایم ایس</option><option value="PhD">پی ایچ ڈی</option></select><div id="aiou-btns" style="display:none; margin-top: 5px;"><button class="cat-btn" onclick="location.href='books.html'">نصابی کتب</button><button class="cat-btn" onclick="location.href='books.html'">امدادی کتب</button></div></div></div>
+        <div class="card"><i class="fas fa-book card-icon"></i><h4>General Library</h4><small>جنرل لائبریری</small><button onclick="location.href='books.html'">Open</button></div>
+        <div class="card"><i class="fas fa-mosque card-icon"></i><h4>Wifaq-ul-Madaris</h4><small>وفاق المدارس</small><button onclick="toggleDisplay('wifaq-menu')">Open</button><div id="wifaq-menu" style="display:none; margin-top:10px; width: 100%;"><select style="width:100%; padding:5px;" onchange="showSubButtons(this.value, 'wifaq')"><option value="">درجہ منتخب کریں</option><option value="تجوید">تجوید</option><option value="ابتدائیہ">ابتدائیہ</option><option value="اولیٰ">اولیٰ</option><option value="ثانیہ">ثانیہ</option><option value="ثالثہ">ثالثہ</option><option value="رابعہ">رابعہ</option><option value="خامسہ">خامسہ</option><option value="سادسہ">سادسہ</option><option value="سابعہ">سابعہ</option><option value="عالمیہ">عالمیہ</option><option value="تخصص">تخصص</option></select><div id="wifaq-btns" style="display:none; margin-top: 5px;"><button class="cat-btn" onclick="location.href='books.html'">نصابی کتب</button><button class="cat-btn" onclick="location.href='books.html'">امدادی کتب</button></div></div></div>
+        <div class="card"><i class="fas fa-chalkboard-teacher card-icon"></i><h4>All Boards</h4><small>آل بورڈز</small><button onclick="toggleDisplay('board-menu')">Open</button><div id="board-menu" style="display:none; margin-top:10px; width: 100%;"><select style="width:100%; padding:5px;" onchange="showSubButtons(this.value, 'board')"><option value="">کلاس منتخب کریں</option><option value="9th">9th</option><option value="10th">10th</option><option value="11th">11th</option><option value="12th">12th</option></select><div id="board-btns" style="display:none; margin-top: 5px;"><button class="cat-btn" onclick="location.href='books.html'">نصابی کتب</button><button class="cat-btn" onclick="location.href='books.html'">امدادی کتب</button></div></div></div>
+        <div class="card"><i class="fas fa-university card-icon"></i><h4>AIOU</h4><small>علامہ اقبال یونیورسٹی</small><button onclick="toggleDisplay('aiou-menu')">Open</button><div id="aiou-menu" style="display:none; margin-top:10px; width: 100%;"><select style="width:100%; padding:5px;" onchange="showSubButtons(this.value, 'aiou')"><option value="">کورس منتخب کریں</option><option value="SSC">میٹرک (SSC)</option><option value="HSSC">انٹر (HSSC)</option><option value="AD">ایسوسی ایٹ ڈگری</option><option value="BS">بی ایس (BS)</option><option value="BEd">بی ایڈ (B.Ed)</option><option value="PGD">PGD</option><option value="MPhil">ایم فل / ایم ایس</option><option value="PhD">پی ایچ ڈی</option></select><div id="aiou-btns" style="display:none; margin-top: 5px;"><button class="cat-btn" onclick="location.href='books.html'">نصابی کتب</button><button class="cat-btn" onclick="location.href='books.html'">امدادی کتب</button></div></div></div>
     </div>
 </section>
 
@@ -86,18 +86,13 @@
 <footer>&copy; 2026 ADIL WARIA. All Rights Reserved.</footer>
 
 <script>
-    // گوگل شیٹ کا لنک یہاں محفوظ ہے
+    // گوگل شیٹ کا ڈیٹا لانے والا سسٹم
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyi2ilqitOxTHkwWAcYU0Wrc-xhzwSgZvJk8JZy_-6N40xnRFkvZk8uVHACePzS7opI/exec';
-    
-    // ڈیٹا لانے کا فنکشن (آپ کے سسٹم کے لیے تیار)
-    async function checkData() {
-        try {
-            let res = await fetch(scriptURL);
-            let data = await res.json();
-            console.log("ڈیٹا کامیابی سے لنک ہو گیا ہے");
-        } catch (e) { console.log("ڈیٹا فی الحال لوڈ نہیں ہوا"); }
+    async function loadData() {
+        try { let res = await fetch(scriptURL); let data = await res.json(); console.log("ڈیٹا لنک ہو گیا ہے"); } 
+        catch (e) { console.log("ڈیٹا لوڈنگ میں مسئلہ ہے"); }
     }
-    checkData();
+    loadData();
 
     function toggleDisplay(id) { 
         let el = document.getElementById(id); 
